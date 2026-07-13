@@ -84,6 +84,15 @@ a:hover{opacity:.8}
 .nav-item.active .title{color:var(--yellow);font-weight:600}
 .nav-item .ext{font-size:11px;color:var(--mid-grey);opacity:0;transition:opacity .12s;flex-shrink:0;margin-left:8px}
 .nav-item:hover .ext{opacity:1}
+.nav-subfolder{margin:0}
+.nav-subfolder-hd{display:flex;align-items:center;gap:8px;padding:8px 20px 8px 36px;cursor:pointer;border-left:3px solid transparent;transition:background .12s,border-color .12s}
+.nav-subfolder-hd:hover{background:var(--brand-dim);border-left-color:var(--grey)}
+.nav-subfolder-hd .arrow{font-size:9px;color:var(--mid-grey);transition:transform .2s;width:10px}
+.nav-subfolder-hd .arrow.off{transform:rotate(-90deg)}
+.nav-subfolder-hd .name{flex:1;font-size:13px;font-weight:600;color:var(--bronze);line-height:1.4}
+.nav-subfolder-hd .cnt{font-size:10px;color:var(--mid-grey);background:rgba(139,105,20,0.2);padding:2px 6px;min-width:18px;text-align:center}
+.nav-sub-item{padding-left:54px!important}
+.sec-sub{font-size:13px!important;color:var(--bronze)!important;padding-left:16px;border-left:2px solid var(--bronze);margin-left:8px}
 
 .content{flex:1;overflow-y:auto}
 
@@ -246,11 +255,11 @@ a:hover{opacity:.8}
           <img src="assets/corner_logo.png" alt="稻来" class="hero-logo-img">
           <h1>2025—<span class="y">2026</span><br>稻来调研报告</h1>
           <div class="en">DOCLABS RESEARCH ARCHIVE</div>
-          <div class="desc">餐饮消费 · 潮玩现象 · 纪录片专题 · AI与纪录片 · 节目分析 · 每月纪实</div>
+          <div class="desc">专题调研 · AI与纪录片 · 节目分析 · 餐饮消费研究 · 每月纪实</div>
           <div class="hero-stats">
             <div class="hero-stat"><div class="num" id="stDocs">30</div><div class="label">篇报告</div></div>
             <div class="hero-stat"><div class="num" id="stChars">187<span class="unit">万+</span></div><div class="label">字符内容</div></div>
-            <div class="hero-stat"><div class="num">6</div><div class="label">个专题</div></div>
+            <div class="hero-stat"><div class="num">5</div><div class="label">个专题</div></div>
           </div>
         </div>
       </div>
@@ -284,12 +293,12 @@ var loadedFolders = {};
 var allLoaded = false;
 var ROOT_NAME = '2025-2026稻来调研报告';
 var FOLDER_ICONS = {
-  '年轻人餐饮消费及节目延伸专题研究':'🍜',
-  '当代潮玩现象研究及相关行业报告':'🎨',
   '专题调研':'🔬',
+  '当代潮玩现象研究及相关行业报告':'🎨',
+  '每月纪实报告':'📊',
   'AI与纪录片':'🤖',
   '节目分析':'🎬',
-  '每月纪实报告':'📊'
+  '年轻人餐饮消费及节目延伸专题研究':'🍜'
 };
 
 /* ===== 加载文件夹元数据（轻量，不含大文档正文） ===== */
@@ -354,10 +363,29 @@ function buildSidebar() {
   (window.FOLDER_INDEX||[]).forEach(function(fi) {
     var fid = fi.dataVar;
     var icon = FOLDER_ICONS[fi.folder]||'📄';
+    var subfolders = fi.subfolders || [];
     h += '<div class="nav-folder"><div class="nav-folder-hd" onclick="toggleFolder(\''+fid+'\')"><span class="arrow" id="a_'+fid+'">▼</span><span class="name">'+icon+' '+esc(fi.folder)+'</span><span class="cnt">'+fi.count+'</span></div><div class="nav-items" id="i_'+fid+'">';
+    // Direct docs (not in subfolders)
+    var subDocIds = new Set();
+    subfolders.forEach(function(sf){sf.docIds.forEach(function(d){subDocIds.add(d)})});
     for (var j=0;j<fi.docIds.length;j++) {
-      h += '<div class="nav-item" data-id="'+fi.docIds[j]+'" onclick="showDoc(\''+fi.docIds[j]+'\',\''+esc(fi.folder)+'\')"><span class="title">'+esc(fi.docTitles[j])+'</span><a href="'+fi.docUrls[j]+'" target="_blank" class="ext" onclick="event.stopPropagation()">↗</a></div>';
+      if (!subDocIds.has(fi.docIds[j])) {
+        h += '<div class="nav-item" data-id="'+fi.docIds[j]+'" onclick="showDoc(\''+fi.docIds[j]+'\',\''+esc(fi.folder)+'\')"><span class="title">'+esc(fi.docTitles[j])+'</span><a href="'+fi.docUrls[j]+'" target="_blank" class="ext" onclick="event.stopPropagation()">↗</a></div>';
+      }
     }
+    // Subfolders
+    subfolders.forEach(function(sf) {
+      var sfIcon = FOLDER_ICONS[sf.name]||'📁';
+      var sfFid = fid + '_sf_' + sf.name.replace(/[^a-zA-Z0-9\u4e00-\u9fff]/g,'');
+      h += '<div class="nav-subfolder"><div class="nav-subfolder-hd" onclick="toggleFolder(\''+sfFid+'\')"><span class="arrow" id="a_'+sfFid+'">▼</span><span class="name">'+sfIcon+' '+esc(sf.name)+'</span><span class="cnt">'+sf.docIds.length+'</span></div><div class="nav-items off" id="i_'+sfFid+'">';
+      sf.docIds.forEach(function(did) {
+        var idx = fi.docIds.indexOf(did);
+        if (idx !== -1) {
+          h += '<div class="nav-item nav-sub-item" data-id="'+did+'" onclick="showDoc(\''+did+'\',\''+esc(fi.folder)+'\')"><span class="title">'+esc(fi.docTitles[idx])+'</span><a href="'+fi.docUrls[idx]+'" target="_blank" class="ext" onclick="event.stopPropagation()">↗</a></div>';
+        }
+      });
+      h += '</div></div>';
+    });
     h += '</div></div>';
   });
   sb.innerHTML = h;
@@ -368,11 +396,28 @@ function buildCards() {
   var h = '';
   (window.FOLDER_INDEX||[]).forEach(function(fi) {
     var icon = FOLDER_ICONS[fi.folder]||'📄';
+    var subfolders = fi.subfolders || [];
+    var subDocIds = new Set();
+    subfolders.forEach(function(sf){sf.docIds.forEach(function(d){subDocIds.add(d)})});
     h += '<div class="sec-title">'+icon+' '+esc(fi.folder)+'</div><div class="cards">';
     for (var j=0;j<fi.docIds.length;j++) {
-      h += '<div class="card" onclick="showDoc(\''+fi.docIds[j]+'\',\''+esc(fi.folder)+'\')"><div class="card-folder">'+esc(fi.folder)+'</div><div class="card-title">'+esc(fi.docTitles[j])+'</div><div class="card-summary" id="cs_'+fi.docIds[j]+'">加载中…</div><div class="card-ft"><span class="card-link">阅读全文 →</span></div></div>';
+      if (!subDocIds.has(fi.docIds[j])) {
+        h += '<div class="card" onclick="showDoc(\''+fi.docIds[j]+'\',\''+esc(fi.folder)+'\')"><div class="card-folder">'+esc(fi.folder)+'</div><div class="card-title">'+esc(fi.docTitles[j])+'</div><div class="card-summary" id="cs_'+fi.docIds[j]+'">加载中…</div><div class="card-ft"><span class="card-link">阅读全文 →</span></div></div>';
+      }
     }
     h += '</div>';
+    // Subfolder cards
+    subfolders.forEach(function(sf) {
+      var sfIcon = FOLDER_ICONS[sf.name]||'📁';
+      h += '<div class="sec-title sec-sub">'+sfIcon+' ⊂ '+esc(sf.name)+'</div><div class="cards">';
+      sf.docIds.forEach(function(did) {
+        var idx = fi.docIds.indexOf(did);
+        if (idx !== -1) {
+          h += '<div class="card" onclick="showDoc(\''+did+'\',\''+esc(fi.folder)+'\')"><div class="card-folder">'+esc(sf.name)+'</div><div class="card-title">'+esc(fi.docTitles[idx])+'</div><div class="card-summary" id="cs_'+did+'">加载中…</div><div class="card-ft"><span class="card-link">阅读全文 →</span></div></div>';
+        }
+      });
+      h += '</div>';
+    });
   });
   box.innerHTML = h;
   // 异步加载摘要（文件夹元数据，轻量）
@@ -455,8 +500,10 @@ function showSearchResults(q,results){
   var box=document.getElementById('searchResults');
   if(!results.length){box.innerHTML='<div class="sr-none"><div class="ic">⌕</div><div class="tx">未找到与 "'+esc(q)+'" 相关的内容</div></div>';return}
   box.innerHTML=results.map(function(r){
+    var folderLabel = r.doc.folder;
+    if (r.doc.subfolder) folderLabel = r.doc.folder + ' › ' + r.doc.subfolder;
     var snip=getSnippet(r.doc.content,q,160);
-    return '<div class="sr-item" onclick="showDoc(\''+r.doc.id+'\',\''+esc(r.doc.folder)+'\')"><div class="sr-title">'+hl(r.doc.title,q)+'</div><div class="sr-folder">'+esc(r.doc.folder)+'</div><div class="sr-snippet">'+hl(snip,q)+'</div></div>';
+    return '<div class="sr-item" onclick="showDoc(\''+r.doc.id+'\',\''+esc(r.doc.folder)+'\')"><div class="sr-title">'+hl(r.doc.title,q)+'</div><div class="sr-folder">'+esc(folderLabel)+'</div><div class="sr-snippet">'+hl(snip,q)+'</div></div>';
   }).join('');
 }
 
@@ -499,7 +546,7 @@ window.showDoc=function(id,folderName){
     hideAll();
     var dp=document.getElementById('docPage');
     dp.style.display='block';dp.classList.add('active');
-    document.getElementById('dTag').textContent=doc.folder;
+    document.getElementById('dTag').textContent=doc.subfolder ? doc.folder+' › '+doc.subfolder : doc.folder;
     document.getElementById('dTitle').textContent=doc.title;
     document.getElementById('dExt').href=doc.url;
     

@@ -7,7 +7,6 @@
 <style>
 /* ============================================
    稻来 VI 严格色彩体系
-   来源：品牌色值规范文档
    ============================================ */
 :root {
   --yellow:     #FFC72C;
@@ -49,8 +48,8 @@ a:hover{opacity:.8}
   position:fixed;top:0;left:0;right:0;z-index:100;
   height:60px;display:flex;align-items:center;gap:20px;
   padding:0 32px;
-  background:rgba(0,0,0,0.92);
-  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,0.88);
+  backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border-subtle);
 }
 .header::after{
@@ -97,17 +96,10 @@ a:hover{opacity:.8}
   border-bottom:1px solid var(--border-subtle);
   margin-bottom:12px;
 }
-.side-root-name{
-  font-size:15px;font-weight:800;color:var(--yellow);
-  letter-spacing:1px;line-height:1.4;
-}
+.side-root-name{font-size:15px;font-weight:800;color:var(--yellow);letter-spacing:1px;line-height:1.4}
 .side-root-sub{font-size:11px;color:var(--mid-grey);margin-top:2px;letter-spacing:1px}
 
-.side-label{
-  font-size:11px;color:var(--mid-grey);
-  letter-spacing:3px;text-transform:uppercase;
-  padding:12px 20px 6px;font-weight:600;
-}
+.side-label{font-size:11px;color:var(--mid-grey);letter-spacing:3px;text-transform:uppercase;padding:12px 20px 6px;font-weight:600}
 .nav-folder{margin-bottom:2px}
 .nav-folder-hd{
   display:flex;align-items:center;gap:8px;
@@ -116,17 +108,10 @@ a:hover{opacity:.8}
   transition:background .12s,border-color .12s;
 }
 .nav-folder-hd:hover{background:var(--brand-dim);border-left-color:var(--grey)}
-.nav-folder-hd .arrow{
-  font-size:10px;color:var(--mid-grey);
-  transition:transform .2s;width:12px;
-}
+.nav-folder-hd .arrow{font-size:10px;color:var(--mid-grey);transition:transform .2s;width:12px}
 .nav-folder-hd .arrow.off{transform:rotate(-90deg)}
 .nav-folder-hd .name{flex:1;font-size:14px;font-weight:700;color:var(--warm-grey);line-height:1.4}
-.nav-folder-hd .cnt{
-  font-size:11px;color:var(--mid-grey);
-  background:var(--grey);padding:2px 8px;
-  min-width:22px;text-align:center;
-}
+.nav-folder-hd .cnt{font-size:11px;color:var(--mid-grey);background:var(--grey);padding:2px 8px;min-width:22px;text-align:center}
 .nav-items{padding:2px 0}
 .nav-items.off{display:none}
 .nav-item{
@@ -137,10 +122,7 @@ a:hover{opacity:.8}
 }
 .nav-item:hover{background:var(--brand-dim);border-left-color:var(--grey)}
 .nav-item.active{background:var(--brand-mid);border-left-color:var(--yellow)}
-.nav-item .title{
-  flex:1;font-size:13px;color:rgba(255,255,255,.7);
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4;
-}
+.nav-item .title{flex:1;font-size:13px;color:rgba(255,255,255,.7);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
 .nav-item.active .title{color:var(--yellow);font-weight:600}
 .nav-item .ext{font-size:11px;color:var(--mid-grey);opacity:0;transition:opacity .12s;flex-shrink:0;margin-left:8px}
 .nav-item:hover .ext{opacity:1}
@@ -148,69 +130,90 @@ a:hover{opacity:.8}
 /* ===== 内容区 ===== */
 .content{flex:1;overflow-y:auto}
 
-/* ===== 首页 Hero ===== */
+/* ===== 首页 Hero — 若隐若现海报氛围 ===== */
 .home{max-width:1100px;margin:0 auto;padding:0 48px 80px}
 
-.hero-banner{
+.hero-section{
   position:relative;
-  margin:-0px -48px 0;
-  padding:48px 48px 40px;
-  overflow:hidden;
-  min-height:340px;
+  min-height:420px;
   display:flex;
   align-items:center;
-  gap:40px;
+  justify-content:center;
+  overflow:hidden;
+  margin:0 -48px;
+  padding:60px 48px;
 }
-.hero-posters{
-  display:flex;gap:12px;flex-shrink:0;
-  position:relative;z-index:1;
-}
-.hero-poster{
-  width:160px;height:226px;
-  object-fit:cover;
-  border:1px solid rgba(255,199,44,0.15);
-  transition:transform .3s,box-shadow .3s;
-  cursor:default;
-}
-.hero-poster:hover{
-  transform:scale(1.04);
-  box-shadow:0 8px 32px rgba(255,199,44,0.12);
-}
-.hero-poster-label{
-  font-size:10px;color:var(--yellow);letter-spacing:2px;
-  text-align:center;margin-top:8px;font-weight:600;
-}
-.hero-text{
-  position:relative;z-index:1;flex:1;
-}
-.hero-logo-img{
-  width:72px;height:auto;margin-bottom:20px;
-}
-.hero-text h1{
-  font-size:42px;font-weight:900;color:var(--white);
-  letter-spacing:6px;line-height:1.3;margin-bottom:6px;
-}
-.hero-text h1 .y{color:var(--yellow)}
-.hero-text .en{
-  font-size:13px;color:var(--mid-grey);letter-spacing:4px;
-  text-transform:uppercase;margin-bottom:8px;
-}
-.hero-text .desc{
-  font-size:15px;color:var(--warm-grey);font-weight:300;
-  letter-spacing:2px;line-height:1.7;margin-bottom:20px;
-}
-.hero-stats{display:flex;gap:40px}
-.hero-stat .num{font-size:38px;font-weight:900;color:var(--yellow);line-height:1}
-.hero-stat .unit{font-size:15px;color:var(--yellow);font-weight:300}
-.hero-stat .label{font-size:11px;color:var(--mid-grey);letter-spacing:2px;margin-top:4px;text-transform:uppercase}
 
-/* 装饰背景光 */
-.hero-banner::before{
-  content:'';position:absolute;top:-60%;right:-10%;
-  width:500px;height:500px;
-  background:radial-gradient(circle,rgba(255,199,44,0.06) 0%,transparent 70%);
+/* 海报氛围层 — 若隐若现 */
+.hero-atmosphere{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
   pointer-events:none;
 }
+.ghost-poster{
+  position:absolute;
+  object-fit:cover;
+  border-radius:4px;
+  mix-blend-mode:screen;
+  filter:brightness(0.6) saturate(0.5);
+  opacity:0;
+  animation:posterFadeIn 1.2s ease-out forwards;
+}
+@keyframes posterFadeIn{
+  from{opacity:0;transform:scale(1.05)}
+  to{opacity:1;transform:scale(1)}
+}
+
+/* 海报布局 — 散落式 */
+.gp1{left:2%;top:8%;width:140px;height:198px;opacity:0.12;filter:brightness(0.5) saturate(0.3) blur(1px);animation-delay:0.1s}
+.gp2{left:10%;bottom:5%;width:120px;height:170px;opacity:0.10;filter:brightness(0.5) saturate(0.3) blur(1.5px);animation-delay:0.3s}
+.gp3{left:22%;top:15%;width:110px;height:155px;opacity:0.14;filter:brightness(0.6) saturate(0.4) blur(0.5px);animation-delay:0.2s}
+.gp4{right:22%;top:10%;width:130px;height:184px;opacity:0.13;filter:brightness(0.5) saturate(0.35) blur(1px);animation-delay:0.4s}
+.gp5{right:10%;bottom:8%;width:115px;height:163px;opacity:0.11;filter:brightness(0.5) saturate(0.3) blur(1.5px);animation-delay:0.5s}
+.gp6{right:3%;top:18%;width:120px;height:170px;opacity:0.09;filter:brightness(0.4) saturate(0.3) blur(2px);animation-delay:0.6s}
+.gp7{left:32%;bottom:2%;width:100px;height:52px;opacity:0.08;filter:brightness(0.5) saturate(0.3) blur(2px);animation-delay:0.7s}
+.gp8{right:32%;bottom:3%;width:100px;height:141px;opacity:0.10;filter:brightness(0.5) saturate(0.3) blur(1.5px);animation-delay:0.35s}
+
+/* 中央渐变遮罩 — 让文字区域清晰 */
+.hero-section::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at center,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.3) 100%);
+  z-index:1;pointer-events:none;
+}
+/* 底部品牌色微光 */
+.hero-section::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gradient-brand-h);
+  opacity:0.3;z-index:2;
+}
+
+/* Hero 文字层 */
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;
+  max-width:640px;
+}
+.hero-logo-img{width:80px;height:auto;margin:0 auto 24px;display:block}
+.hero-content h1{
+  font-size:44px;font-weight:900;color:var(--white);
+  letter-spacing:8px;line-height:1.3;margin-bottom:6px;
+}
+.hero-content h1 .y{color:var(--yellow)}
+.hero-content .en{
+  font-size:13px;color:var(--mid-grey);letter-spacing:5px;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.hero-content .desc{
+  font-size:15px;color:var(--warm-grey);font-weight:300;
+  letter-spacing:3px;margin-bottom:28px;line-height:1.8;
+}
+.hero-stats{display:flex;justify-content:center;gap:48px}
+.hero-stat .num{font-size:40px;font-weight:900;color:var(--yellow);line-height:1}
+.hero-stat .unit{font-size:16px;color:var(--yellow);font-weight:300}
+.hero-stat .label{font-size:11px;color:var(--mid-grey);letter-spacing:2px;margin-top:4px;text-transform:uppercase}
 
 .divider{border:none;height:1px;background:var(--border-subtle);margin:32px 0}
 
@@ -310,10 +313,11 @@ a:hover{opacity:.8}
 
 /* ===== 响应式 ===== */
 @media(max-width:900px){
-  .hero-banner{flex-direction:column;align-items:flex-start;gap:24px;padding:32px 24px 28px}
-  .hero-posters{gap:10px}
-  .hero-poster{width:120px;height:170px}
-  .hero-text h1{font-size:30px;letter-spacing:3px}
+  .hero-section{min-height:360px;padding:48px 24px}
+  .ghost-poster{display:none}
+  .hero-content h1{font-size:32px;letter-spacing:4px}
+  /* 平板上海报缩小但保留 */
+  .gp1,.gp2,.gp3,.gp4,.gp5,.gp6,.gp7,.gp8{width:80px !important;height:auto !important}
 }
 @media(max-width:768px){
   .mobile-btn{display:block}
@@ -322,14 +326,14 @@ a:hover{opacity:.8}
   .sidebar-overlay.open{display:block}
   .header-stat{display:none}
   .home{padding:0 20px 60px}
-  .hero-banner{padding:24px 20px 20px}
-  .hero-text h1{font-size:24px;letter-spacing:2px}
-  .hero-poster{width:100px;height:142px}
+  .hero-section{padding:36px 20px;min-height:300px}
+  .ghost-poster{display:none}
+  .hero-content h1{font-size:26px;letter-spacing:3px}
+  .hero-stats{gap:24px}
+  .hero-stat .num{font-size:30px}
   .cards{grid-template-columns:1fr}
   .doc-page,.search-page{padding:24px 20px 60px}
   .doc-title{font-size:22px}
-  .hero-stats{gap:20px}
-  .hero-stat .num{font-size:28px}
 }
 </style>
 </head>
@@ -360,18 +364,29 @@ a:hover{opacity:.8}
   <main class="content" id="contentArea">
     <!-- 首页 -->
     <div class="home" id="homePage">
-      <div class="hero-banner">
-        <div class="hero-posters">
-          <div>
-            <img src="assets/fengwei_renjian_s3.jpg" alt="风味人间" class="hero-poster">
-            <div class="hero-poster-label">风味人间</div>
-          </div>
-          <div>
-            <img src="assets/fengwei_yuanchandi.jpg" alt="风味原产地" class="hero-poster">
-            <div class="hero-poster-label">风味原产地</div>
-          </div>
+      <div class="hero-section">
+        <!-- 若隐若现海报氛围层 -->
+        <div class="hero-atmosphere">
+          <!-- 风味人间 第1季 — 肉峡谷 -->
+          <img src="assets/fengwei_renjian.jpg" alt="" class="ghost-poster gp1">
+          <!-- 风味人间 第2季 — 渔人剪影 -->
+          <img src="assets/fw_s2_silhouette.jpg" alt="" class="ghost-poster gp2">
+          <!-- 风味人间 第3季 — 大海小鲜 -->
+          <img src="assets/fengwei_renjian_s3.jpg" alt="" class="ghost-poster gp3">
+          <!-- 风味人间 第4季 — 谷物星球 -->
+          <img src="assets/fw_s4_grain.jpg" alt="" class="ghost-poster gp4">
+          <!-- 风味人间 第4季 — 稻穗根系 -->
+          <img src="assets/fw_s4_river.jpg" alt="" class="ghost-poster gp5">
+          <!-- 风味原产地 甘肃 -->
+          <img src="assets/fengwei_yuanchandi.jpg" alt="" class="ghost-poster gp6">
+          <!-- 风味原产地 潮汕 -->
+          <img src="assets/fwo_chaoshan.jpg" alt="" class="ghost-poster gp7">
+          <!-- 风味原产地 甘肃2 -->
+          <img src="assets/fwo_gansu2.jpg" alt="" class="ghost-poster gp8">
         </div>
-        <div class="hero-text">
+
+        <!-- 中央文字层 -->
+        <div class="hero-content">
           <img src="assets/corner_logo.png" alt="稻来" class="hero-logo-img">
           <h1>2025—<span class="y">2026</span><br>稻来调研报告</h1>
           <div class="en">DOCLABS RESEARCH ARCHIVE</div>
@@ -417,22 +432,18 @@ a:hover{opacity:.8}
   </main>
 </div>
 
-<!-- ===== 数据加载 ===== -->
 <script src="data/index.js"></script>
 <script>
 (function(){
 'use strict';
 
-/* ===== 状态 ===== */
 const ALL_DOCS = [];
 const docMap = {};
 const loadedFolders = new Set();
 let allLoaded = false;
 
-/* 主文件夹名 */
 const ROOT_NAME = '2025-2026稻来调研报告';
 
-/* 子文件夹配置 */
 const FOLDER_ICONS = {
   '年轻人餐饮消费及节目延伸专题研究':'🍜',
   '当代潮玩现象研究及相关行业报告':'🎨',
@@ -442,7 +453,6 @@ const FOLDER_ICONS = {
   '每月纪实报告':'📊'
 };
 
-/* ===== 懒加载 ===== */
 function loadFolder(folderName) {
   return new Promise(resolve => {
     const idx = (window.FOLDER_INDEX || []).find(f => f.folder === folderName);
@@ -453,10 +463,7 @@ function loadFolder(folderName) {
       const data = window[idx.dataVar];
       if (data) {
         data.forEach(d => {
-          if (!docMap[d.id]) {
-            docMap[d.id] = d;
-            ALL_DOCS.push(d);
-          }
+          if (!docMap[d.id]) { docMap[d.id] = d; ALL_DOCS.push(d); }
         });
       }
       loadedFolders.add(folderName);
@@ -473,7 +480,6 @@ function loadAllFolders() {
   return Promise.all(promises).then(() => { allLoaded = true; });
 }
 
-/* ===== 统计 ===== */
 function updateStats() {
   const total = ALL_DOCS.length;
   const chars = ALL_DOCS.reduce((s,d) => s + (d.content ? d.content.length : 0), 0);
@@ -483,17 +489,10 @@ function updateStats() {
   document.getElementById('stChars').innerHTML = Math.round(chars/10000) + '<span class="unit">万+</span>';
 }
 
-/* ===== 侧栏 — 层级结构 ===== */
 function buildSidebar() {
   const sb = document.getElementById('sidebar');
-  let h = '';
-  /* 根文件夹 */
-  h += '<div class="side-root">';
-  h += '<div class="side-root-name">' + esc(ROOT_NAME) + '</div>';
-  h += '<div class="side-root-sub">DOCLABS RESEARCH</div>';
-  h += '</div>';
+  let h = '<div class="side-root"><div class="side-root-name">' + esc(ROOT_NAME) + '</div><div class="side-root-sub">DOCLABS RESEARCH</div></div>';
   h += '<div class="side-label">专题分类</div>';
-
   (window.FOLDER_INDEX || []).forEach(fi => {
     const fid = fi.dataVar;
     const icon = FOLDER_ICONS[fi.folder] || '📄';
@@ -501,21 +500,18 @@ function buildSidebar() {
     h += '<div class="nav-folder-hd" onclick="toggleFolder(\'' + fid + '\')">';
     h += '<span class="arrow" id="a_' + fid + '">▼</span>';
     h += '<span class="name">' + icon + ' ' + esc(fi.folder) + '</span>';
-    h += '<span class="cnt">' + fi.count + '</span>';
-    h += '</div>';
+    h += '<span class="cnt">' + fi.count + '</span></div>';
     h += '<div class="nav-items" id="i_' + fid + '">';
     for (let j = 0; j < fi.docIds.length; j++) {
       h += '<div class="nav-item" data-id="' + fi.docIds[j] + '" onclick="showDoc(\'' + fi.docIds[j] + '\',\'' + esc(fi.folder) + '\')">';
       h += '<span class="title">' + esc(fi.docTitles[j]) + '</span>';
-      h += '<a href="' + fi.docUrls[j] + '" target="_blank" class="ext" onclick="event.stopPropagation()">↗</a>';
-      h += '</div>';
+      h += '<a href="' + fi.docUrls[j] + '" target="_blank" class="ext" onclick="event.stopPropagation()">↗</a></div>';
     }
     h += '</div></div>';
   });
   sb.innerHTML = h;
 }
 
-/* ===== 首页卡片 — 层级展示 ===== */
 function buildCards() {
   const box = document.getElementById('cardsBox');
   let h = '';
@@ -528,14 +524,11 @@ function buildCards() {
       h += '<div class="card-folder">' + esc(fi.folder) + '</div>';
       h += '<div class="card-title">' + esc(fi.docTitles[j]) + '</div>';
       h += '<div class="card-summary" id="cs_' + fi.docIds[j] + '">加载中…</div>';
-      h += '<div class="card-ft"><span class="card-link">阅读全文 →</span></div>';
-      h += '</div>';
+      h += '<div class="card-ft"><span class="card-link">阅读全文 →</span></div></div>';
     }
     h += '</div>';
   });
   box.innerHTML = h;
-
-  /* 异步加载摘要 */
   (window.FOLDER_INDEX || []).forEach(fi => {
     loadFolder(fi.folder).then(() => {
       fi.docIds.forEach(id => {
@@ -551,7 +544,6 @@ function buildCards() {
   });
 }
 
-/* ===== Markdown → HTML ===== */
 function md2html(md) {
   let t = md || '';
   t = t.replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>');
@@ -571,7 +563,6 @@ function md2html(md) {
   return t;
 }
 
-/* ===== 搜索 ===== */
 function tokenize(text) {
   if (!text) return [];
   text = text.toLowerCase();
@@ -601,11 +592,7 @@ function doSearch(q) {
       const tt = new Set(tokenize(doc.title));
       const ft = new Set(tokenize(doc.folder));
       const ct = new Set(tokenize(doc.content));
-      qt.forEach(t => {
-        if (ct.has(t)) score += 1;
-        if (tt.has(t)) score += 3;
-        if (ft.has(t)) score += 2;
-      });
+      qt.forEach(t => { if (ct.has(t)) score += 1; if (tt.has(t)) score += 3; if (ft.has(t)) score += 2; });
       return { doc, score };
     }).filter(r => r.score > 0).sort((a,b) => b.score - a.score);
     showSearchResults(q, results);
@@ -624,11 +611,7 @@ function showSearchResults(q, results) {
   }
   box.innerHTML = results.map(r => {
     const snip = getSnippet(r.doc.content, q, 160);
-    return '<div class="sr-item" onclick="showDoc(\'' + r.doc.id + '\',\'' + esc(r.doc.folder) + '\')">' +
-      '<div class="sr-title">' + hl(r.doc.title, q) + '</div>' +
-      '<div class="sr-folder">' + esc(r.doc.folder) + '</div>' +
-      '<div class="sr-snippet">' + hl(snip, q) + '</div>' +
-      '</div>';
+    return '<div class="sr-item" onclick="showDoc(\'' + r.doc.id + '\',\'' + esc(r.doc.folder) + '\')"><div class="sr-title">' + hl(r.doc.title, q) + '</div><div class="sr-folder">' + esc(r.doc.folder) + '</div><div class="sr-snippet">' + hl(snip, q) + '</div></div>';
   }).join('');
 }
 
@@ -654,7 +637,6 @@ window.clearSearch = function() {
   goHome();
 };
 
-/* ===== 导航 ===== */
 function hideAll() {
   document.getElementById('homePage').style.display = 'none';
   const dp = document.getElementById('docPage');
@@ -683,9 +665,7 @@ window.showDoc = function(id, folderName) {
     document.getElementById('dTitle').textContent = doc.title;
     document.getElementById('dExt').href = doc.url;
     document.getElementById('dBody').innerHTML = md2html(doc.content);
-    document.querySelectorAll('.nav-item').forEach(el => {
-      el.classList.toggle('active', el.dataset.id === id);
-    });
+    document.querySelectorAll('.nav-item').forEach(el => el.classList.toggle('active', el.dataset.id === id));
     document.getElementById('contentArea').scrollTop = 0;
     closeSB();
   });
@@ -709,22 +689,14 @@ function closeSB() {
 }
 
 document.addEventListener('keydown', function(e) {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-    e.preventDefault();
-    document.getElementById('searchInput').focus();
-  }
-  if (e.key === 'Escape') {
-    if (document.getElementById('searchInput').value) clearSearch();
-    else if (document.getElementById('docPage').classList.contains('active')) goHome();
-  }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('searchInput').focus(); }
+  if (e.key === 'Escape') { if (document.getElementById('searchInput').value) clearSearch(); else if (document.getElementById('docPage').classList.contains('active')) goHome(); }
 });
 
 function esc(t) { const d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; }
 
-/* ===== 启动 ===== */
 buildSidebar();
 buildCards();
-
 })();
 </script>
 </body>

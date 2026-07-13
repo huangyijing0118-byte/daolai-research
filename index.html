@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>稻来调研报告 | DOC◇LABS Research</title>
 <style>
-/* ============================================
-   稻来 VI 严格色彩体系
-   ============================================ */
 :root {
   --yellow:     #FFC72C;
   --black:      #000000;
@@ -21,7 +18,6 @@
   --gradient-brand-h: linear-gradient(90deg, #FFC72C 0%, #D4981A 40%, #8B6914 100%);
   --bg-primary:   #000000;
   --bg-card:      #0A0A0A;
-  --bg-hover:     #111111;
   --border-subtle: #1A1A1A;
   --border-brand:  rgba(255,199,44,0.35);
   --text-primary:  #FFFFFF;
@@ -29,9 +25,7 @@
   --text-muted:    #777777;
   --brand-dim:     rgba(255,199,44,0.06);
   --brand-mid:     rgba(255,199,44,0.14);
-  --brand-strong:  rgba(255,199,44,0.25);
 }
-
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{font-size:18px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 body{font-family:"PingFang SC","Noto Sans SC","Helvetica Neue",Arial,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.7;overflow:hidden;height:100vh}
@@ -43,70 +37,39 @@ body{font-family:"PingFang SC","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
 a{color:var(--yellow);text-decoration:none;transition:opacity .15s}
 a:hover{opacity:.8}
 
-/* ===== 顶栏 ===== */
 .header{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  height:60px;display:flex;align-items:center;gap:20px;
-  padding:0 32px;
-  background:rgba(0,0,0,0.88);
-  backdrop-filter:blur(16px);
+  height:60px;display:flex;align-items:center;gap:20px;padding:0 32px;
+  background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border-subtle);
 }
-.header::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent 0%,var(--yellow) 50%,transparent 100%);
-  opacity:.25;
-}
+.header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--yellow) 50%,transparent 100%);opacity:.25}
 .logo-group{display:flex;align-items:center;cursor:pointer;flex-shrink:0}
 .logo-img{height:36px;width:auto;flex-shrink:0}
-
 .search-box{flex:1;max-width:520px;position:relative}
-.search-input{
-  width:100%;height:38px;
-  background:var(--grey);
-  border:1px solid transparent;
-  padding:0 40px 0 40px;
-  font-size:14px;color:var(--white);outline:none;
-  transition:border-color .2s;
-}
+.search-input{width:100%;height:38px;background:var(--grey);border:1px solid transparent;padding:0 40px 0 40px;font-size:14px;color:var(--white);outline:none;transition:border-color .2s}
 .search-input::placeholder{color:var(--mid-grey)}
 .search-input:focus{border-color:var(--yellow)}
 .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--mid-grey);font-size:14px;pointer-events:none}
 .search-clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--mid-grey);cursor:pointer;display:none;font-size:18px;line-height:1}
 .search-clear:hover{color:var(--yellow)}
-
 .header-right{display:flex;align-items:center;gap:14px;margin-left:auto;flex-shrink:0}
 .header-stat{font-size:12px;color:var(--mid-grey);white-space:nowrap}
 .header-stat .v{color:var(--yellow);font-weight:700}
-
 .mobile-btn{display:none;background:none;border:1px solid var(--grey);color:var(--white);padding:4px 10px;cursor:pointer;font-size:18px}
 
-/* ===== 布局 ===== */
 .layout{display:flex;margin-top:60px;height:calc(100vh - 60px)}
 
-/* ===== 侧栏 ===== */
 .sidebar{
-  width:280px;flex-shrink:0;
-  border-right:1px solid var(--border-subtle);
-  overflow-y:auto;padding:20px 0;
-  background:var(--black);
+  width:280px;flex-shrink:0;border-right:1px solid var(--border-subtle);
+  overflow-y:auto;padding:20px 0;background:var(--black);
 }
-.side-root{
-  padding:0 20px 16px;
-  border-bottom:1px solid var(--border-subtle);
-  margin-bottom:12px;
-}
+.side-root{padding:0 20px 16px;border-bottom:1px solid var(--border-subtle);margin-bottom:12px}
 .side-root-name{font-size:15px;font-weight:800;color:var(--yellow);letter-spacing:1px;line-height:1.4}
 .side-root-sub{font-size:11px;color:var(--mid-grey);margin-top:2px;letter-spacing:1px}
-
 .side-label{font-size:11px;color:var(--mid-grey);letter-spacing:3px;text-transform:uppercase;padding:12px 20px 6px;font-weight:600}
 .nav-folder{margin-bottom:2px}
-.nav-folder-hd{
-  display:flex;align-items:center;gap:8px;
-  padding:10px 20px;cursor:pointer;
-  border-left:3px solid transparent;
-  transition:background .12s,border-color .12s;
-}
+.nav-folder-hd{display:flex;align-items:center;gap:8px;padding:10px 20px;cursor:pointer;border-left:3px solid transparent;transition:background .12s,border-color .12s}
 .nav-folder-hd:hover{background:var(--brand-dim);border-left-color:var(--grey)}
 .nav-folder-hd .arrow{font-size:10px;color:var(--mid-grey);transition:transform .2s;width:12px}
 .nav-folder-hd .arrow.off{transform:rotate(-90deg)}
@@ -114,12 +77,7 @@ a:hover{opacity:.8}
 .nav-folder-hd .cnt{font-size:11px;color:var(--mid-grey);background:var(--grey);padding:2px 8px;min-width:22px;text-align:center}
 .nav-items{padding:2px 0}
 .nav-items.off{display:none}
-.nav-item{
-  display:flex;align-items:center;
-  padding:8px 20px 8px 44px;cursor:pointer;
-  border-left:3px solid transparent;
-  transition:background .12s,border-color .12s;
-}
+.nav-item{display:flex;align-items:center;padding:8px 20px 8px 44px;cursor:pointer;border-left:3px solid transparent;transition:background .12s,border-color .12s}
 .nav-item:hover{background:var(--brand-dim);border-left-color:var(--grey)}
 .nav-item.active{background:var(--brand-mid);border-left-color:var(--yellow)}
 .nav-item .title{flex:1;font-size:13px;color:rgba(255,255,255,.7);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
@@ -127,152 +85,69 @@ a:hover{opacity:.8}
 .nav-item .ext{font-size:11px;color:var(--mid-grey);opacity:0;transition:opacity .12s;flex-shrink:0;margin-left:8px}
 .nav-item:hover .ext{opacity:1}
 
-/* ===== 内容区 ===== */
 .content{flex:1;overflow-y:auto}
 
-/* ===== 首页 Hero — 若隐若现海报氛围 ===== */
 .home{max-width:1100px;margin:0 auto;padding:0 48px 80px}
 
 .hero-section{
-  position:relative;
-  min-height:420px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  margin:0 -48px;
-  padding:60px 48px;
+  position:relative;min-height:420px;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;margin:0 -48px;padding:60px 48px;
 }
-
-/* 海报氛围层 — 若隐若现 */
-.hero-atmosphere{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-}
+.hero-atmosphere{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .ghost-poster{
-  position:absolute;
-  object-fit:cover;
-  border-radius:4px;
-  mix-blend-mode:screen;
-  filter:brightness(0.6) saturate(0.5);
-  opacity:0;
-  animation:posterFadeIn 1.2s ease-out forwards;
+  position:absolute;object-fit:cover;border-radius:4px;
+  mix-blend-mode:screen;filter:brightness(0.6) saturate(0.5);
+  opacity:0;animation:posterFadeIn 1.2s ease-out forwards;
+  loading:lazy;
 }
-@keyframes posterFadeIn{
-  from{opacity:0;transform:scale(1.05)}
-  to{opacity:1;transform:scale(1)}
-}
-
-/* 海报布局 — 散落式 */
-.gp1{left:2%;top:8%;width:140px;height:198px;opacity:0.12;filter:brightness(0.5) saturate(0.3) blur(1px);animation-delay:0.1s}
-.gp2{left:10%;bottom:5%;width:120px;height:170px;opacity:0.10;filter:brightness(0.5) saturate(0.3) blur(1.5px);animation-delay:0.3s}
-.gp3{left:22%;top:15%;width:110px;height:155px;opacity:0.14;filter:brightness(0.6) saturate(0.4) blur(0.5px);animation-delay:0.2s}
-.gp4{right:22%;top:10%;width:130px;height:184px;opacity:0.13;filter:brightness(0.5) saturate(0.35) blur(1px);animation-delay:0.4s}
-.gp5{right:10%;bottom:8%;width:115px;height:163px;opacity:0.11;filter:brightness(0.5) saturate(0.3) blur(1.5px);animation-delay:0.5s}
-.gp6{right:3%;top:18%;width:120px;height:170px;opacity:0.09;filter:brightness(0.4) saturate(0.3) blur(2px);animation-delay:0.6s}
-.gp7{left:32%;bottom:2%;width:100px;height:52px;opacity:0.08;filter:brightness(0.5) saturate(0.3) blur(2px);animation-delay:0.7s}
-.gp8{right:32%;bottom:3%;width:100px;height:141px;opacity:0.10;filter:brightness(0.5) saturate(0.3) blur(1.5px);animation-delay:0.35s}
-
-/* 中央渐变遮罩 — 让文字区域清晰 */
-.hero-section::before{
-  content:'';
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 70% at center,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.3) 100%);
-  z-index:1;pointer-events:none;
-}
-/* 底部品牌色微光 */
-.hero-section::after{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--gradient-brand-h);
-  opacity:0.3;z-index:2;
-}
-
-/* Hero 文字层 */
-.hero-content{
-  position:relative;z-index:2;
-  text-align:center;
-  max-width:640px;
-}
+@keyframes posterFadeIn{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:scale(1)}}
+.gp1{left:2%;top:8%;width:140px;height:198px;opacity:0.12;filter:brightness(0.5) saturate(0.3) blur(1px);animation-delay:.1s}
+.gp2{left:10%;bottom:5%;width:120px;height:170px;opacity:0.10;filter:brightness(0.5) saturate(0.3) blur(1.5px);animation-delay:.3s}
+.gp3{left:22%;top:15%;width:110px;height:155px;opacity:0.14;filter:brightness(0.6) saturate(0.4) blur(.5px);animation-delay:.2s}
+.gp4{right:22%;top:10%;width:130px;height:184px;opacity:0.13;filter:brightness(0.5) saturate(0.35) blur(1px);animation-delay:.4s}
+.gp5{right:10%;bottom:8%;width:115px;height:163px;opacity:0.11;filter:brightness(0.5) saturate(0.3) blur(1.5px);animation-delay:.5s}
+.gp6{right:3%;top:18%;width:120px;height:170px;opacity:0.09;filter:brightness(0.4) saturate(0.3) blur(2px);animation-delay:.6s}
+.gp7{left:32%;bottom:2%;width:100px;height:52px;opacity:0.08;filter:brightness(0.5) saturate(0.3) blur(2px);animation-delay:.7s}
+.gp8{right:32%;bottom:3%;width:100px;height:141px;opacity:0.10;filter:brightness(0.5) saturate(0.3) blur(1.5px);animation-delay:.35s}
+.hero-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at center,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.3) 100%);z-index:1;pointer-events:none}
+.hero-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gradient-brand-h);opacity:.3;z-index:2}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:640px}
 .hero-logo-img{width:80px;height:auto;margin:0 auto 24px;display:block}
-.hero-content h1{
-  font-size:44px;font-weight:900;color:var(--white);
-  letter-spacing:8px;line-height:1.3;margin-bottom:6px;
-}
+.hero-content h1{font-size:44px;font-weight:900;color:var(--white);letter-spacing:8px;line-height:1.3;margin-bottom:6px}
 .hero-content h1 .y{color:var(--yellow)}
-.hero-content .en{
-  font-size:13px;color:var(--mid-grey);letter-spacing:5px;
-  text-transform:uppercase;margin-bottom:10px;
-}
-.hero-content .desc{
-  font-size:15px;color:var(--warm-grey);font-weight:300;
-  letter-spacing:3px;margin-bottom:28px;line-height:1.8;
-}
+.hero-content .en{font-size:13px;color:var(--mid-grey);letter-spacing:5px;text-transform:uppercase;margin-bottom:10px}
+.hero-content .desc{font-size:15px;color:var(--warm-grey);font-weight:300;letter-spacing:3px;margin-bottom:28px;line-height:1.8}
 .hero-stats{display:flex;justify-content:center;gap:48px}
 .hero-stat .num{font-size:40px;font-weight:900;color:var(--yellow);line-height:1}
 .hero-stat .unit{font-size:16px;color:var(--yellow);font-weight:300}
 .hero-stat .label{font-size:11px;color:var(--mid-grey);letter-spacing:2px;margin-top:4px;text-transform:uppercase}
 
 .divider{border:none;height:1px;background:var(--border-subtle);margin:32px 0}
-
-/* 分类标题 */
-.sec-title{
-  font-size:14px;color:var(--yellow);
-  letter-spacing:3px;font-weight:700;
-  margin:28px 0 16px;
-  display:flex;align-items:center;gap:12px;
-}
+.sec-title{font-size:14px;color:var(--yellow);letter-spacing:3px;font-weight:700;margin:28px 0 16px;display:flex;align-items:center;gap:12px}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--border-subtle)}
 
-/* 卡片网格 */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:12px}
-.card{
-  background:var(--bg-card);
-  border:1px solid var(--border-subtle);
-  padding:22px 24px;cursor:pointer;
-  transition:border-color .2s,transform .2s;
-  position:relative;overflow:hidden;
-}
-.card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:var(--gradient-brand-h);opacity:0;transition:opacity .2s;
-}
+.card{background:var(--bg-card);border:1px solid var(--border-subtle);padding:22px 24px;cursor:pointer;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient-brand-h);opacity:0;transition:opacity .2s}
 .card:hover{border-color:var(--border-brand);transform:translateY(-2px)}
 .card:hover::before{opacity:1}
 .card-folder{font-size:11px;color:var(--yellow);letter-spacing:2px;font-weight:700;margin-bottom:10px;text-transform:uppercase}
 .card-title{font-size:17px;font-weight:700;color:var(--white);line-height:1.5;margin-bottom:10px}
-.card-summary{
-  font-size:13.5px;color:var(--mid-grey);line-height:1.8;font-weight:300;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
-}
+.card-summary{font-size:13.5px;color:var(--mid-grey);line-height:1.8;font-weight:300;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card-ft{display:flex;justify-content:flex-end;margin-top:14px}
 .card-link{font-size:12px;color:var(--yellow);font-weight:600;letter-spacing:1px}
 
-/* — 文档详情 — */
 .doc-page{display:none;max-width:840px;margin:0 auto;padding:40px 48px 80px}
 .doc-page.active{display:block}
-.doc-back{
-  display:inline-flex;align-items:center;gap:6px;
-  color:var(--mid-grey);font-size:14px;cursor:pointer;
-  margin-bottom:28px;transition:color .12s;
-}
+.doc-back{display:inline-flex;align-items:center;gap:6px;color:var(--mid-grey);font-size:14px;cursor:pointer;margin-bottom:28px;transition:color .12s}
 .doc-back:hover{color:var(--yellow)}
 .doc-hd{margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border-subtle);position:relative}
 .doc-hd::after{content:'';position:absolute;bottom:-1px;left:0;width:56px;height:2px;background:var(--yellow)}
 .doc-tag{font-size:11px;color:var(--yellow);letter-spacing:2px;font-weight:700;margin-bottom:12px;text-transform:uppercase}
 .doc-title{font-size:30px;font-weight:900;color:var(--white);line-height:1.35;margin-bottom:16px;letter-spacing:1px}
 .doc-meta{display:flex;gap:10px;align-items:center}
-.doc-ext{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:6px 14px;background:var(--brand-dim);
-  border:1px solid var(--border-brand);
-  color:var(--yellow);font-size:13px;font-weight:600;
-  letter-spacing:.5px;transition:background .15s;
-}
+.doc-ext{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--brand-dim);border:1px solid var(--border-brand);color:var(--yellow);font-size:13px;font-weight:600;letter-spacing:.5px;transition:background .15s}
 .doc-ext:hover{background:var(--brand-mid);text-decoration:none;opacity:1}
-
 .doc-body{font-size:16px;line-height:2;color:rgba(255,255,255,.78);font-weight:300}
 .doc-body h1{font-size:26px;font-weight:900;color:var(--white);margin:44px 0 18px;padding-bottom:12px;border-bottom:2px solid var(--yellow)}
 .doc-body h2{font-size:20px;font-weight:700;color:var(--white);margin:32px 0 14px;padding-left:14px;border-left:3px solid var(--yellow)}
@@ -292,14 +167,14 @@ a:hover{opacity:.8}
 .doc-body th,.doc-body td{border:1px solid var(--border-subtle);padding:8px 12px;text-align:left}
 .doc-body th{background:var(--grey);color:var(--yellow);font-weight:600}
 
-/* — 搜索结果 — */
+/* 加载中提示 */
+.doc-loading{text-align:center;padding:60px 20px;color:var(--mid-grey);font-size:15px}
+.doc-loading .spinner{display:inline-block;width:24px;height:24px;border:2px solid var(--grey);border-top-color:var(--yellow);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
 .search-page{display:none;max-width:840px;margin:0 auto;padding:40px 48px 80px}
 .search-page.active{display:block}
-.sr-item{
-  padding:16px 20px;border-bottom:1px solid var(--border-subtle);
-  cursor:pointer;transition:background .12s;
-  border-left:3px solid transparent;
-}
+.sr-item{padding:16px 20px;border-bottom:1px solid var(--border-subtle);cursor:pointer;transition:background .12s;border-left:3px solid transparent}
 .sr-item:hover{background:var(--brand-dim);border-left-color:var(--yellow)}
 .sr-title{font-size:16px;font-weight:700;color:var(--white);margin-bottom:4px}
 .sr-folder{font-size:11px;color:var(--yellow);letter-spacing:1px;font-weight:600;margin-bottom:8px}
@@ -311,13 +186,10 @@ a:hover{opacity:.8}
 
 .sidebar-overlay{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);z-index:49}
 
-/* ===== 响应式 ===== */
 @media(max-width:900px){
   .hero-section{min-height:360px;padding:48px 24px}
-  .ghost-poster{display:none}
+  .gp1,.gp2,.gp3,.gp4,.gp5,.gp6,.gp7,.gp8{width:80px!important;height:auto!important}
   .hero-content h1{font-size:32px;letter-spacing:4px}
-  /* 平板上海报缩小但保留 */
-  .gp1,.gp2,.gp3,.gp4,.gp5,.gp6,.gp7,.gp8{width:80px !important;height:auto !important}
 }
 @media(max-width:768px){
   .mobile-btn{display:block}
@@ -339,7 +211,6 @@ a:hover{opacity:.8}
 </head>
 <body>
 
-<!-- ===== 顶栏 ===== -->
 <header class="header">
   <div class="logo-group" onclick="goHome()">
     <img src="assets/logo_header.png" alt="稻来传媒" class="logo-img">
@@ -347,8 +218,7 @@ a:hover{opacity:.8}
   <button class="mobile-btn" onclick="toggleSidebar()">☰</button>
   <div class="search-box">
     <span class="search-icon">⌕</span>
-    <input type="text" class="search-input" id="searchInput"
-           placeholder="搜索报告内容…" oninput="handleSearch(this.value)">
+    <input type="text" class="search-input" id="searchInput" placeholder="搜索报告内容…" oninput="handleSearch(this.value)">
     <span class="search-clear" id="searchClear" onclick="clearSearch()">×</span>
   </div>
   <div class="header-right">
@@ -356,75 +226,46 @@ a:hover{opacity:.8}
   </div>
 </header>
 
-<!-- ===== 主布局 ===== -->
 <div class="layout">
   <nav class="sidebar" id="sidebar"></nav>
   <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
-
   <main class="content" id="contentArea">
-    <!-- 首页 -->
     <div class="home" id="homePage">
       <div class="hero-section">
-        <!-- 若隐若现海报氛围层 -->
         <div class="hero-atmosphere">
-          <!-- 风味人间 第1季 — 肉峡谷 -->
-          <img src="assets/fengwei_renjian.jpg" alt="" class="ghost-poster gp1">
-          <!-- 风味人间 第2季 — 渔人剪影 -->
-          <img src="assets/fw_s2_silhouette.jpg" alt="" class="ghost-poster gp2">
-          <!-- 风味人间 第3季 — 大海小鲜 -->
-          <img src="assets/fengwei_renjian_s3.jpg" alt="" class="ghost-poster gp3">
-          <!-- 风味人间 第4季 — 谷物星球 -->
-          <img src="assets/fw_s4_grain.jpg" alt="" class="ghost-poster gp4">
-          <!-- 风味人间 第4季 — 稻穗根系 -->
-          <img src="assets/fw_s4_river.jpg" alt="" class="ghost-poster gp5">
-          <!-- 风味原产地 甘肃 -->
-          <img src="assets/fengwei_yuanchandi.jpg" alt="" class="ghost-poster gp6">
-          <!-- 风味原产地 潮汕 -->
-          <img src="assets/fwo_chaoshan.jpg" alt="" class="ghost-poster gp7">
-          <!-- 风味原产地 甘肃2 -->
-          <img src="assets/fwo_gansu2.jpg" alt="" class="ghost-poster gp8">
+          <img src="assets/fengwei_renjian.jpg" alt="" class="ghost-poster gp1" loading="lazy">
+          <img src="assets/fw_s2_silhouette.jpg" alt="" class="ghost-poster gp2" loading="lazy">
+          <img src="assets/fengwei_renjian_s3.jpg" alt="" class="ghost-poster gp3" loading="lazy">
+          <img src="assets/fw_s4_grain.jpg" alt="" class="ghost-poster gp4" loading="lazy">
+          <img src="assets/fw_s4_river.jpg" alt="" class="ghost-poster gp5" loading="lazy">
+          <img src="assets/fengwei_yuanchandi.jpg" alt="" class="ghost-poster gp6" loading="lazy">
+          <img src="assets/fwo_chaoshan.jpg" alt="" class="ghost-poster gp7" loading="lazy">
+          <img src="assets/fwo_gansu2.jpg" alt="" class="ghost-poster gp8" loading="lazy">
         </div>
-
-        <!-- 中央文字层 -->
         <div class="hero-content">
           <img src="assets/corner_logo.png" alt="稻来" class="hero-logo-img">
           <h1>2025—<span class="y">2026</span><br>稻来调研报告</h1>
           <div class="en">DOCLABS RESEARCH ARCHIVE</div>
           <div class="desc">餐饮消费 · 潮玩现象 · 纪录片专题 · AI与纪录片 · 节目分析 · 每月纪实</div>
           <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="num" id="stDocs">30</div>
-              <div class="label">篇报告</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num" id="stChars">187<span class="unit">万+</span></div>
-              <div class="label">字符内容</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">6</div>
-              <div class="label">个专题</div>
-            </div>
+            <div class="hero-stat"><div class="num" id="stDocs">30</div><div class="label">篇报告</div></div>
+            <div class="hero-stat"><div class="num" id="stChars">187<span class="unit">万+</span></div><div class="label">字符内容</div></div>
+            <div class="hero-stat"><div class="num">6</div><div class="label">个专题</div></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div id="cardsBox"></div>
     </div>
-
-    <!-- 文档详情 -->
     <div class="doc-page" id="docPage">
       <div class="doc-back" onclick="goHome()">← 返回全部报告</div>
       <div class="doc-hd">
         <div class="doc-tag" id="dTag"></div>
         <h1 class="doc-title" id="dTitle"></h1>
-        <div class="doc-meta">
-          <a href="#" target="_blank" class="doc-ext" id="dExt">在腾讯文档中打开 ↗</a>
-        </div>
+        <div class="doc-meta"><a href="#" target="_blank" class="doc-ext" id="dExt">在腾讯文档中打开 ↗</a></div>
       </div>
       <div class="doc-body" id="dBody"></div>
     </div>
-
-    <!-- 搜索结果 -->
     <div class="search-page" id="searchPage">
       <div class="doc-back" onclick="clearSearch()">← 返回全部报告</div>
       <div id="searchResults"></div>
@@ -437,14 +278,12 @@ a:hover{opacity:.8}
 (function(){
 'use strict';
 
-const ALL_DOCS = [];
-const docMap = {};
-const loadedFolders = new Set();
-let allLoaded = false;
-
-const ROOT_NAME = '2025-2026稻来调研报告';
-
-const FOLDER_ICONS = {
+var ALL_DOCS = [];
+var docMap = {};
+var loadedFolders = {};
+var allLoaded = false;
+var ROOT_NAME = '2025-2026稻来调研报告';
+var FOLDER_ICONS = {
   '年轻人餐饮消费及节目延伸专题研究':'🍜',
   '当代潮玩现象研究及相关行业报告':'🎨',
   '专题调研':'🔬',
@@ -453,20 +292,20 @@ const FOLDER_ICONS = {
   '每月纪实报告':'📊'
 };
 
+/* ===== 加载文件夹元数据（轻量，不含大文档正文） ===== */
 function loadFolder(folderName) {
-  return new Promise(resolve => {
-    const idx = (window.FOLDER_INDEX || []).find(f => f.folder === folderName);
-    if (!idx || loadedFolders.has(folderName)) { resolve(); return; }
-    const s = document.createElement('script');
+  if (loadedFolders[folderName]) return Promise.resolve();
+  var idx = (window.FOLDER_INDEX||[]).find(function(f){return f.folder===folderName});
+  if (!idx) return Promise.resolve();
+  return new Promise(function(resolve) {
+    var s = document.createElement('script');
     s.src = idx.dataFile;
     s.onload = function() {
-      const data = window[idx.dataVar];
-      if (data) {
-        data.forEach(d => {
-          if (!docMap[d.id]) { docMap[d.id] = d; ALL_DOCS.push(d); }
-        });
-      }
-      loadedFolders.add(folderName);
+      var data = window[idx.dataVar] || [];
+      data.forEach(function(d) {
+        if (!docMap[d.id]) { docMap[d.id] = d; ALL_DOCS.push(d); }
+      });
+      loadedFolders[folderName] = true;
       resolve();
     };
     s.onerror = function() { resolve(); };
@@ -476,36 +315,48 @@ function loadFolder(folderName) {
 
 function loadAllFolders() {
   if (allLoaded) return Promise.resolve();
-  const promises = (window.FOLDER_INDEX || []).map(f => loadFolder(f.folder));
-  return Promise.all(promises).then(() => { allLoaded = true; });
+  return Promise.all((window.FOLDER_INDEX||[]).map(function(f){return loadFolder(f.folder)}))
+    .then(function(){ allLoaded = true; });
+}
+
+/* ===== 按需加载单篇大文档正文 ===== */
+function loadDocContent(doc) {
+  if (doc.content) return Promise.resolve(doc);
+  // 标记为大文档的，从独立文件加载
+  if (doc._big) {
+    return new Promise(function(resolve) {
+      var s = document.createElement('script');
+      s.src = 'data/doc_' + doc.id + '.js';
+      s.onload = function() {
+        var fullDoc = window['DOC_DATA_' + doc.id];
+        if (fullDoc) { doc.content = fullDoc.content; delete doc._big; }
+        resolve(doc);
+      };
+      s.onerror = function() { resolve(doc); };
+      document.head.appendChild(s);
+    });
+  }
+  return Promise.resolve(doc);
 }
 
 function updateStats() {
-  const total = ALL_DOCS.length;
-  const chars = ALL_DOCS.reduce((s,d) => s + (d.content ? d.content.length : 0), 0);
+  var total = ALL_DOCS.length;
+  var chars = ALL_DOCS.reduce(function(s,d){return s+(d.content?d.content.length:0)},0);
   document.getElementById('hdCnt').textContent = total;
-  document.getElementById('hdChars').textContent = Math.round(chars / 10000);
+  document.getElementById('hdChars').textContent = Math.round(chars/10000);
   document.getElementById('stDocs').textContent = total;
-  document.getElementById('stChars').innerHTML = Math.round(chars/10000) + '<span class="unit">万+</span>';
+  document.getElementById('stChars').innerHTML = Math.round(chars/10000)+'<span class="unit">万+</span>';
 }
 
 function buildSidebar() {
-  const sb = document.getElementById('sidebar');
-  let h = '<div class="side-root"><div class="side-root-name">' + esc(ROOT_NAME) + '</div><div class="side-root-sub">DOCLABS RESEARCH</div></div>';
-  h += '<div class="side-label">专题分类</div>';
-  (window.FOLDER_INDEX || []).forEach(fi => {
-    const fid = fi.dataVar;
-    const icon = FOLDER_ICONS[fi.folder] || '📄';
-    h += '<div class="nav-folder">';
-    h += '<div class="nav-folder-hd" onclick="toggleFolder(\'' + fid + '\')">';
-    h += '<span class="arrow" id="a_' + fid + '">▼</span>';
-    h += '<span class="name">' + icon + ' ' + esc(fi.folder) + '</span>';
-    h += '<span class="cnt">' + fi.count + '</span></div>';
-    h += '<div class="nav-items" id="i_' + fid + '">';
-    for (let j = 0; j < fi.docIds.length; j++) {
-      h += '<div class="nav-item" data-id="' + fi.docIds[j] + '" onclick="showDoc(\'' + fi.docIds[j] + '\',\'' + esc(fi.folder) + '\')">';
-      h += '<span class="title">' + esc(fi.docTitles[j]) + '</span>';
-      h += '<a href="' + fi.docUrls[j] + '" target="_blank" class="ext" onclick="event.stopPropagation()">↗</a></div>';
+  var sb = document.getElementById('sidebar');
+  var h = '<div class="side-root"><div class="side-root-name">'+esc(ROOT_NAME)+'</div><div class="side-root-sub">DOCLABS RESEARCH</div></div><div class="side-label">专题分类</div>';
+  (window.FOLDER_INDEX||[]).forEach(function(fi) {
+    var fid = fi.dataVar;
+    var icon = FOLDER_ICONS[fi.folder]||'📄';
+    h += '<div class="nav-folder"><div class="nav-folder-hd" onclick="toggleFolder(\''+fid+'\')"><span class="arrow" id="a_'+fid+'">▼</span><span class="name">'+icon+' '+esc(fi.folder)+'</span><span class="cnt">'+fi.count+'</span></div><div class="nav-items" id="i_'+fid+'">';
+    for (var j=0;j<fi.docIds.length;j++) {
+      h += '<div class="nav-item" data-id="'+fi.docIds[j]+'" onclick="showDoc(\''+fi.docIds[j]+'\',\''+esc(fi.folder)+'\')"><span class="title">'+esc(fi.docTitles[j])+'</span><a href="'+fi.docUrls[j]+'" target="_blank" class="ext" onclick="event.stopPropagation()">↗</a></div>';
     }
     h += '</div></div>';
   });
@@ -513,30 +364,27 @@ function buildSidebar() {
 }
 
 function buildCards() {
-  const box = document.getElementById('cardsBox');
-  let h = '';
-  (window.FOLDER_INDEX || []).forEach(fi => {
-    const icon = FOLDER_ICONS[fi.folder] || '📄';
-    h += '<div class="sec-title">' + icon + ' ' + esc(fi.folder) + '</div>';
-    h += '<div class="cards">';
-    for (let j = 0; j < fi.docIds.length; j++) {
-      h += '<div class="card" onclick="showDoc(\'' + fi.docIds[j] + '\',\'' + esc(fi.folder) + '\')">';
-      h += '<div class="card-folder">' + esc(fi.folder) + '</div>';
-      h += '<div class="card-title">' + esc(fi.docTitles[j]) + '</div>';
-      h += '<div class="card-summary" id="cs_' + fi.docIds[j] + '">加载中…</div>';
-      h += '<div class="card-ft"><span class="card-link">阅读全文 →</span></div></div>';
+  var box = document.getElementById('cardsBox');
+  var h = '';
+  (window.FOLDER_INDEX||[]).forEach(function(fi) {
+    var icon = FOLDER_ICONS[fi.folder]||'📄';
+    h += '<div class="sec-title">'+icon+' '+esc(fi.folder)+'</div><div class="cards">';
+    for (var j=0;j<fi.docIds.length;j++) {
+      h += '<div class="card" onclick="showDoc(\''+fi.docIds[j]+'\',\''+esc(fi.folder)+'\')"><div class="card-folder">'+esc(fi.folder)+'</div><div class="card-title">'+esc(fi.docTitles[j])+'</div><div class="card-summary" id="cs_'+fi.docIds[j]+'">加载中…</div><div class="card-ft"><span class="card-link">阅读全文 →</span></div></div>';
     }
     h += '</div>';
   });
   box.innerHTML = h;
-  (window.FOLDER_INDEX || []).forEach(fi => {
-    loadFolder(fi.folder).then(() => {
-      fi.docIds.forEach(id => {
-        const doc = docMap[id];
-        const el = document.getElementById('cs_' + id);
+  // 异步加载摘要（文件夹元数据，轻量）
+  (window.FOLDER_INDEX||[]).forEach(function(fi) {
+    loadFolder(fi.folder).then(function() {
+      fi.docIds.forEach(function(id) {
+        var doc = docMap[id];
+        var el = document.getElementById('cs_'+id);
         if (doc && el) {
-          const summary = (doc.content || '').substring(0, 120).replace(/[#*_\[\]\\]/g, '');
-          el.textContent = summary + '…';
+          var summary = (doc.content||'').substring(0,120).replace(/[#*_\[\]\\]/g,'');
+          if (summary.length < 10 && doc._big) summary = '大型文档，点击阅读全文…';
+          el.textContent = summary ? summary+'…' : '';
         }
       });
       updateStats();
@@ -545,155 +393,155 @@ function buildCards() {
 }
 
 function md2html(md) {
-  let t = md || '';
-  t = t.replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>');
-  t = t.replace(/`([^`]+)`/g, '<code>$1</code>');
-  t = t.replace(/^####\s+(.+)$/gm, '<h4>$1</h4>');
-  t = t.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
-  t = t.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
-  t = t.replace(/^#\s+(.+)$/gm, '<h1>$1</h1>');
-  t = t.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  t = t.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  t = t.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
-  t = t.replace(/^[-*]\s+(.+)$/gm, '<li>$1</li>');
-  t = t.replace(/^>\s+(.+)$/gm, '<blockquote>$1</blockquote>');
-  t = t.replace(/^---+$/gm, '<hr>');
-  t = t.replace(/\n\n+/g, '</p><p>');
-  t = t.replace(/\n/g, '<br>');
+  var t = md||'';
+  t = t.replace(/```(\w*)\n([\s\S]*?)```/g,'<pre><code>$2</code></pre>');
+  t = t.replace(/`([^`]+)`/g,'<code>$1</code>');
+  t = t.replace(/^####\s+(.+)$/gm,'<h4>$1</h4>');
+  t = t.replace(/^###\s+(.+)$/gm,'<h3>$1</h3>');
+  t = t.replace(/^##\s+(.+)$/gm,'<h2>$1</h2>');
+  t = t.replace(/^#\s+(.+)$/gm,'<h1>$1</h1>');
+  t = t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  t = t.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  t = t.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank">$1</a>');
+  t = t.replace(/^[-*]\s+(.+)$/gm,'<li>$1</li>');
+  t = t.replace(/^>\s+(.+)$/gm,'<blockquote>$1</blockquote>');
+  t = t.replace(/^---+$/gm,'<hr>');
+  t = t.replace(/\n\n+/g,'</p><p>');
+  t = t.replace(/\n/g,'<br>');
   return t;
 }
 
 function tokenize(text) {
-  if (!text) return [];
-  text = text.toLowerCase();
-  const tokens = new Set();
-  const cn = text.match(/[\u4e00-\u9fff]/g) || [];
-  cn.forEach(c => tokens.add(c));
-  for (let i = 0; i < cn.length - 1; i++) tokens.add(cn[i] + cn[i+1]);
-  const en = text.match(/[a-z0-9]+/g) || [];
-  en.forEach(w => { tokens.add(w); if (w.length > 3) for (let i = 0; i <= w.length - 3; i++) tokens.add(w.substring(i, i+3)); });
+  if(!text)return[];
+  text=text.toLowerCase();
+  var tokens=new Set();
+  var cn=text.match(/[\u4e00-\u9fff]/g)||[];
+  cn.forEach(function(c){tokens.add(c)});
+  for(var i=0;i<cn.length-1;i++)tokens.add(cn[i]+cn[i+1]);
+  var en=text.match(/[a-z0-9]+/g)||[];
+  en.forEach(function(w){tokens.add(w);if(w.length>3)for(var i=0;i<=w.length-3;i++)tokens.add(w.substring(i,i+3))});
   return Array.from(tokens);
 }
 
-let searchTimer = null;
-window.handleSearch = function(q) {
-  document.getElementById('searchClear').style.display = q ? 'block' : 'none';
+var searchTimer=null;
+window.handleSearch=function(q){
+  document.getElementById('searchClear').style.display=q?'block':'none';
   clearTimeout(searchTimer);
-  searchTimer = setTimeout(() => doSearch(q), 250);
+  searchTimer=setTimeout(function(){doSearch(q)},250);
 };
 
-function doSearch(q) {
-  if (!q || q.trim().length < 2) { goHome(); return; }
-  loadAllFolders().then(() => {
-    const qt = new Set(tokenize(q));
-    if (!qt.size) { goHome(); return; }
-    const results = ALL_DOCS.map(doc => {
-      let score = 0;
-      const tt = new Set(tokenize(doc.title));
-      const ft = new Set(tokenize(doc.folder));
-      const ct = new Set(tokenize(doc.content));
-      qt.forEach(t => { if (ct.has(t)) score += 1; if (tt.has(t)) score += 3; if (ft.has(t)) score += 2; });
-      return { doc, score };
-    }).filter(r => r.score > 0).sort((a,b) => b.score - a.score);
-    showSearchResults(q, results);
+function doSearch(q){
+  if(!q||q.trim().length<2){goHome();return}
+  loadAllFolders().then(function(){
+    var qt=new Set(tokenize(q));
+    if(!qt.size){goHome();return}
+    var results=ALL_DOCS.map(function(doc){
+      var score=0;
+      var tt=new Set(tokenize(doc.title));
+      var ft=new Set(tokenize(doc.folder));
+      var ct=new Set(tokenize(doc.content));
+      qt.forEach(function(t){if(ct.has(t))score+=1;if(tt.has(t))score+=3;if(ft.has(t))score+=2});
+      return{doc:doc,score:score};
+    }).filter(function(r){return r.score>0}).sort(function(a,b){return b.score-a.score});
+    showSearchResults(q,results);
   });
 }
 
-function showSearchResults(q, results) {
+function showSearchResults(q,results){
   hideAll();
-  const sp = document.getElementById('searchPage');
-  sp.style.display = 'block'; sp.classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-  const box = document.getElementById('searchResults');
-  if (!results.length) {
-    box.innerHTML = '<div class="sr-none"><div class="ic">⌕</div><div class="tx">未找到与 "' + esc(q) + '" 相关的内容</div></div>';
-    return;
-  }
-  box.innerHTML = results.map(r => {
-    const snip = getSnippet(r.doc.content, q, 160);
-    return '<div class="sr-item" onclick="showDoc(\'' + r.doc.id + '\',\'' + esc(r.doc.folder) + '\')"><div class="sr-title">' + hl(r.doc.title, q) + '</div><div class="sr-folder">' + esc(r.doc.folder) + '</div><div class="sr-snippet">' + hl(snip, q) + '</div></div>';
+  var sp=document.getElementById('searchPage');
+  sp.style.display='block';sp.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(function(el){el.classList.remove('active')});
+  var box=document.getElementById('searchResults');
+  if(!results.length){box.innerHTML='<div class="sr-none"><div class="ic">⌕</div><div class="tx">未找到与 "'+esc(q)+'" 相关的内容</div></div>';return}
+  box.innerHTML=results.map(function(r){
+    var snip=getSnippet(r.doc.content,q,160);
+    return '<div class="sr-item" onclick="showDoc(\''+r.doc.id+'\',\''+esc(r.doc.folder)+'\')"><div class="sr-title">'+hl(r.doc.title,q)+'</div><div class="sr-folder">'+esc(r.doc.folder)+'</div><div class="sr-snippet">'+hl(snip,q)+'</div></div>';
   }).join('');
 }
 
-function getSnippet(content, q, maxLen) {
-  const lc = (content||'').toLowerCase();
-  const lq = q.toLowerCase();
-  let idx = lc.indexOf(lq);
-  if (idx === -1) { for (const c of q) { idx = lc.indexOf(c.toLowerCase()); if (idx !== -1) break; } }
-  if (idx === -1) idx = 0;
-  const start = Math.max(0, idx - maxLen/3);
-  const end = Math.min(content.length, start + maxLen);
-  return (start > 0 ? '…' : '') + content.substring(start, end) + (end < content.length ? '…' : '');
+function getSnippet(content,q,maxLen){
+  var lc=(content||'').toLowerCase();var lq=q.toLowerCase();
+  var idx=lc.indexOf(lq);
+  if(idx===-1){for(var i=0;i<q.length;i++){idx=lc.indexOf(q[i].toLowerCase());if(idx!==-1)break}}
+  if(idx===-1)idx=0;
+  var start=Math.max(0,idx-maxLen/3);var end=Math.min(content.length,start+maxLen);
+  return(start>0?'…':'')+content.substring(start,end)+(end<content.length?'…':'');
 }
 
-function hl(text, q) {
-  const eq = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return esc(text).replace(new RegExp('(' + eq + ')','gi'), '<span class="sr-hl">$1</span>');
-}
+function hl(text,q){var eq=q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return esc(text).replace(new RegExp('('+eq+')','gi'),'<span class="sr-hl">$1</span>')}
 
-window.clearSearch = function() {
-  document.getElementById('searchInput').value = '';
-  document.getElementById('searchClear').style.display = 'none';
+window.clearSearch=function(){
+  document.getElementById('searchInput').value='';
+  document.getElementById('searchClear').style.display='none';
   goHome();
 };
 
-function hideAll() {
-  document.getElementById('homePage').style.display = 'none';
-  const dp = document.getElementById('docPage');
-  dp.style.display = 'none'; dp.classList.remove('active');
-  const sp = document.getElementById('searchPage');
-  sp.style.display = 'none'; sp.classList.remove('active');
+function hideAll(){
+  document.getElementById('homePage').style.display='none';
+  var dp=document.getElementById('docPage');dp.style.display='none';dp.classList.remove('active');
+  var sp=document.getElementById('searchPage');sp.style.display='none';sp.classList.remove('active');
 }
 
-window.goHome = function() {
+window.goHome=function(){
   hideAll();
-  document.getElementById('homePage').style.display = 'block';
-  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('homePage').style.display='block';
+  document.querySelectorAll('.nav-item').forEach(function(el){el.classList.remove('active')});
   closeSB();
 };
 
-window.showDoc = function(id, folderName) {
-  const folder = folderName || '';
-  const loadP = loadedFolders.has(folder) ? Promise.resolve() : loadFolder(folder);
-  loadP.then(() => {
-    const doc = docMap[id];
-    if (!doc) return;
+window.showDoc=function(id,folderName){
+  var folder=folderName||'';
+  var loadP=loadedFolders[folder]?Promise.resolve():loadFolder(folder);
+  loadP.then(function(){
+    var doc=docMap[id];
+    if(!doc)return;
     hideAll();
-    const dp = document.getElementById('docPage');
-    dp.style.display = 'block'; dp.classList.add('active');
-    document.getElementById('dTag').textContent = doc.folder;
-    document.getElementById('dTitle').textContent = doc.title;
-    document.getElementById('dExt').href = doc.url;
-    document.getElementById('dBody').innerHTML = md2html(doc.content);
-    document.querySelectorAll('.nav-item').forEach(el => el.classList.toggle('active', el.dataset.id === id));
-    document.getElementById('contentArea').scrollTop = 0;
+    var dp=document.getElementById('docPage');
+    dp.style.display='block';dp.classList.add('active');
+    document.getElementById('dTag').textContent=doc.folder;
+    document.getElementById('dTitle').textContent=doc.title;
+    document.getElementById('dExt').href=doc.url;
+    
+    // 如果内容已加载直接显示，否则先显示loading再按需加载
+    if(doc.content){
+      document.getElementById('dBody').innerHTML=md2html(doc.content);
+    } else {
+      document.getElementById('dBody').innerHTML='<div class="doc-loading"><div class="spinner"></div><br>文档加载中…</div>';
+      loadDocContent(doc).then(function(d){
+        document.getElementById('dBody').innerHTML=md2html(d.content||'内容加载失败，请直接在腾讯文档中查看');
+      });
+    }
+    
+    document.querySelectorAll('.nav-item').forEach(function(el){el.classList.toggle('active',el.dataset.id===id)});
+    document.getElementById('contentArea').scrollTop=0;
     closeSB();
   });
 };
 
-window.toggleFolder = function(fid) {
-  const items = document.getElementById('i_' + fid);
-  const arrow = document.getElementById('a_' + fid);
-  if (items) items.classList.toggle('off');
-  if (arrow) arrow.classList.toggle('off');
+window.toggleFolder=function(fid){
+  var items=document.getElementById('i_'+fid);
+  var arrow=document.getElementById('a_'+fid);
+  if(items)items.classList.toggle('off');
+  if(arrow)arrow.classList.toggle('off');
 };
 
-window.toggleSidebar = function() {
+window.toggleSidebar=function(){
   document.getElementById('sidebar').classList.toggle('open');
   document.getElementById('overlay').classList.toggle('open');
 };
 
-function closeSB() {
+function closeSB(){
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('overlay').classList.remove('open');
 }
 
-document.addEventListener('keydown', function(e) {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('searchInput').focus(); }
-  if (e.key === 'Escape') { if (document.getElementById('searchInput').value) clearSearch(); else if (document.getElementById('docPage').classList.contains('active')) goHome(); }
+document.addEventListener('keydown',function(e){
+  if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();document.getElementById('searchInput').focus()}
+  if(e.key==='Escape'){if(document.getElementById('searchInput').value)clearSearch();else if(document.getElementById('docPage').classList.contains('active'))goHome()}
 });
 
-function esc(t) { const d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; }
+function esc(t){var d=document.createElement('div');d.textContent=t||'';return d.innerHTML}
 
 buildSidebar();
 buildCards();

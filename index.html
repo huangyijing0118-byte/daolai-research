@@ -203,8 +203,8 @@ a:hover{color:#ffe066}
 .doc-hd{margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border);position:relative}
 .doc-hd::after{content:'';position:absolute;bottom:-1px;left:0;width:80px;height:3px;background:linear-gradient(90deg,var(--yellow),var(--bronze));border-radius:2px}
 .doc-tag{
-  display:inline-block;font-size:11px;letter-spacing:1px;font-weight:600;margin-bottom:16px;
-  padding:4px 14px;border-radius:20px;
+  display:inline-block;font-size:11px;letter-spacing:1px;font-weight:600;
+  padding:5px 14px;border-radius:20px;
   background:rgba(255,199,44,.12);color:var(--yellow);
 }
 .doc-title{font-size:32px;font-weight:900;color:var(--white);line-height:1.3;margin-bottom:24px;letter-spacing:.5px}
@@ -222,17 +222,25 @@ a:hover{color:#ffe066}
 .doc-btn-secondary{
   background:rgba(255,255,255,.04);color:var(--text2);border:1px solid rgba(255,255,255,.08);
 }
-.doc-meta-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.doc-date{font-size:12px;color:var(--text3);font-family:var(--font-en);letter-spacing:1px}
+.doc-tags{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.doc-tag-issue{background:rgba(255,255,255,.06);color:var(--text3);border:1px solid rgba(255,255,255,.08)}
+.doc-meta-row{display:flex;align-items:center;gap:16px;margin-bottom:0;font-size:13px;color:var(--text3)}
+.doc-meta-item{display:inline-flex;align-items:center;gap:5px}
+.doc-meta-item svg{opacity:.5;flex-shrink:0}
+.doc-sep{height:1px;background:rgba(255,255,255,.08);margin:20px 0}
+/* doc-date merged into doc-meta-row */
 .doc-related{margin-top:48px;padding-top:32px;border-top:1px solid var(--border)}
-.doc-related-hd{font-size:13px;color:var(--yellow);letter-spacing:2px;font-weight:700;text-transform:uppercase;margin-bottom:20px;font-family:var(--font-en)}
+.doc-related-hd{font-size:18px;color:var(--white);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.doc-related-bar{width:3px;height:20px;background:var(--yellow);border-radius:2px;flex-shrink:0}
 .doc-related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .doc-related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;cursor:pointer;transition:all .2s}
 .doc-related-card:hover{background:rgba(255,255,255,.06);border-color:rgba(255,199,44,.2);transform:translateY(-2px)}
-.doc-related-card .rc-tag{display:inline-block;font-size:10px;color:var(--yellow);letter-spacing:1px;font-weight:600;padding:2px 8px;border-radius:4px;background:rgba(255,199,44,.1);margin-bottom:10px}
+.doc-related-card .rc-tag{display:inline-block;font-size:10px;color:var(--yellow);letter-spacing:1px;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(255,199,44,.12);margin-bottom:12px}
 .doc-related-card .rc-title{font-size:14px;font-weight:700;color:var(--white);line-height:1.5;margin-bottom:8px}
 .doc-related-card .rc-desc{font-size:12px;color:var(--text3);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.doc-related-card .rc-meta{font-size:11px;color:var(--text3);margin-top:8px;font-family:var(--font-en)}
+.doc-related-card .rc-meta{font-size:11px;color:var(--text3);margin-top:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.rc-meta-item{display:inline-flex;align-items:center;gap:4px}
+.rc-meta-item svg{opacity:.5}
 .doc-btn-secondary:hover{border-color:rgba(255,255,255,.15);color:var(--white);transform:translateY(-1px)}
 .search-ctx{background:rgba(255,199,44,.06);border:1px solid rgba(255,199,44,.15);border-radius:10px;padding:20px 24px;margin-bottom:28px}
 .search-ctx-hd{font-size:11px;color:var(--yellow);letter-spacing:2px;font-weight:700;text-transform:uppercase;margin-bottom:12px;font-family:var(--font-en)}
@@ -251,7 +259,7 @@ a:hover{color:#ffe066}
 .doc-outline-sub .doc-outline-text{font-size:13px;color:rgba(255,255,255,.55)}
 .doc-outline-sub .doc-outline-item:hover .doc-outline-text{color:rgba(255,255,255,.85)}
 .doc-outline-sub .doc-outline-num{font-size:10px;opacity:.4}
-.doc-desc-box{background:rgba(255,199,44,.04);border-left:3px solid var(--yellow);border-radius:0 10px 10px 0;padding:18px 24px;margin-bottom:32px;color:var(--text2);font-size:14px;line-height:1.8}
+.doc-desc-box{padding:0 0 28px 0;color:var(--text2);font-size:14px;line-height:1.8}
 .doc-outline{
   font-size:15.5px;line-height:1.85;color:rgba(255,255,255,.75);font-weight:300;
   -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
@@ -408,16 +416,23 @@ a:hover{color:#ffe066}
     <div class="doc-page" id="docPage">
       <div class="doc-back" onclick="goHome()">← 返回全部报告</div>
       <div class="doc-hd">
-        <div class="doc-meta-row">
-          <div class="doc-tag" id="dTag"></div>
-          <div class="doc-date" id="dDate"></div>
+        <div class="doc-tags">
+          <span class="doc-tag" id="dTag"></span>
+          <span class="doc-tag doc-tag-issue" id="dIssue"></span>
         </div>
         <h1 class="doc-title" id="dTitle"></h1>
+        <div class="doc-meta-row">
+          <span class="doc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span id="dDate"></span></span>
+          <span class="doc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg><span id="dFolder"></span></span>
+          <span class="doc-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span id="dIssue2"></span></span>
+        </div>
+        <div class="doc-sep"></div>
         <div class="doc-desc-box" id="dDesc"></div>
         <div class="doc-actions">
-          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-primary" id="dExt">在线阅读 ↗</a>
-          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-secondary" id="dPdf">下载文档 ↓</a>
+          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-primary" id="dExt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>在线阅读</a>
+          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-secondary" id="dPdf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下载文档</a>
         </div>
+        <div class="doc-search-hint">💡 可直接搜索文字，快速定位到具体文档</div>
       </div>
       <div class="doc-outline" id="dOutline"></div>
       <div class="doc-related" id="dRelated"></div>
@@ -823,23 +838,27 @@ window.goHome=function(){
 function buildRelated(currentDoc){
   var el=document.getElementById('dRelated');
   if(!el)return;
-  // Find docs in same folder, excluding current
   var sameFolder=ALL_DOCS.filter(function(d){return d.folder===currentDoc.folder&&d.id!==currentDoc.id});
-  // If not enough, add from other folders
   var others=ALL_DOCS.filter(function(d){return d.folder!==currentDoc.folder&&d.id!==currentDoc.id});
   var related=sameFolder.concat(others).slice(0,4);
   if(!related.length){el.innerHTML='';return}
-  var html='<div class="doc-related-hd">相关推荐</div><div class="doc-related-grid">';
+  var html='<div class="doc-related-hd"><span class="doc-related-bar"></span>相关推荐</div><div class="doc-related-grid">';
   related.forEach(function(d){
     var dateM=d.title.match(/(\d{4}年\d{1,2}月|\d{2}年\d{1,2}月)/);
     var dateStr=dateM?dateM[1]:'';
+    var issueM=d.title.match(/[（(](第.+?期)[）)]/);
+    var issueStr=issueM?issueM[1]:'';
     var summary=getDocSummary(d);
+    var folderLabel=d.subfolder?d.subfolder:d.folder;
     html+='<div class="doc-related-card" onclick="showDoc(\''+d.id+'\',\''+esc(d.folder)+'\')">';
-    html+='<div class="rc-tag">'+esc(d.subfolder?d.folder+' › '+d.subfolder:d.folder)+'</div>';
+    if(issueStr)html+='<div class="rc-tag">'+esc(issueStr)+'</div>';
+    else html+='<div class="rc-tag">'+esc(folderLabel)+'</div>';
     html+='<div class="rc-title">'+esc(d.title)+'</div>';
     html+='<div class="rc-desc">'+esc(summary)+'</div>';
-    if(dateStr)html+='<div class="rc-meta">'+esc(dateStr)+'</div>';
-    html+='</div>';
+    html+='<div class="rc-meta">';
+    if(dateStr)html+='<span class="rc-meta-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>'+esc(dateStr)+'</span>';
+    html+='<span class="rc-meta-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>'+esc(folderLabel)+'</span>';
+    html+='</div></div>';
   });
   html+='</div>';
   el.innerHTML=html;
@@ -854,11 +873,19 @@ window.showDoc=function(id,folderName){
     hideAll();
     var dp=document.getElementById('docPage');
     dp.style.display='block';dp.classList.add('active');
-    document.getElementById('dTag').textContent=doc.subfolder ? doc.folder+' › '+doc.subfolder : doc.folder;
+    // Tags: folder name + issue number
+    document.getElementById('dTag').textContent=doc.subfolder ? doc.subfolder : doc.folder;
+    // Extract issue number from title (e.g. "第十四期")
+    var issueMatch=doc.title.match(/[（(](第.+?期)[）)]/);
+    var issueStr=issueMatch?issueMatch[1]:'';
+    document.getElementById('dIssue').textContent=issueStr;
+    document.getElementById('dIssue').style.display=issueStr?'inline-block':'none';
     document.getElementById('dTitle').textContent=doc.title;
-    // Extract date from title (e.g. "2026年6月", "25年12月")
+    // Meta row
     var dateMatch=doc.title.match(/(\d{4}年\d{1,2}月|\d{2}年\d{1,2}月)/);
     document.getElementById('dDate').textContent=dateMatch?dateMatch[1]:'';
+    document.getElementById('dFolder').textContent=doc.subfolder ? doc.subfolder : doc.folder;
+    document.getElementById('dIssue2').textContent=issueStr;
     // Fix buttons: online reading opens tencent doc, download uses export URL
     document.getElementById('dExt').href=doc.url;
     document.getElementById('dPdf').href=doc.url.replace('/doc/','/export/')+'?format=pdf';

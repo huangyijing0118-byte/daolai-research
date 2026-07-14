@@ -95,17 +95,18 @@ a:hover{color:#ffe066}
 .nav-item .next{font-size:10px;color:var(--text3);opacity:0;transition:opacity .12s;flex-shrink:0;margin-left:6px}
 .nav-item:hover .next{opacity:1}
 
-.nav-subfolder{margin:0}
+.nav-subfolder{margin:2px 0 2px 0;background:rgba(139,105,20,.04);border-radius:0 6px 6px 0}
 .nav-subfolder-hd{
-  display:flex;align-items:center;gap:7px;padding:8px 20px 8px 34px;cursor:pointer;
-  border-left:2px solid transparent;transition:all .12s var(--ease);
+  display:flex;align-items:center;gap:7px;padding:9px 16px 9px 44px;cursor:pointer;
+  border-left:3px solid var(--bronze);transition:all .12s var(--ease);
 }
-.nav-subfolder-hd:hover{background:var(--glow);border-left-color:var(--grey)}
-.nav-subfolder-hd .arrow{font-size:7px;color:var(--text3);transition:transform .2s var(--ease);width:8px;text-align:center}
+.nav-subfolder-hd:hover{background:rgba(139,105,20,.1)}
+.nav-subfolder-hd .arrow{font-size:7px;color:var(--bronze);transition:transform .2s var(--ease);width:8px;text-align:center}
 .nav-subfolder-hd .arrow.off{transform:rotate(-90deg)}
-.nav-subfolder-hd .fname{flex:1;font-size:12px;font-weight:600;color:var(--bronze);line-height:1.4}
-.nav-subfolder-hd .fcnt{font-size:9px;color:var(--bronze);background:rgba(139,105,20,.15);padding:2px 6px;border-radius:8px;font-family:var(--font-en)}
-.nav-sub-item{padding-left:50px!important}
+.nav-subfolder-hd .fname{flex:1;font-size:12px;font-weight:700;color:var(--bronze);line-height:1.4;letter-spacing:.3px}
+.nav-subfolder-hd .fcnt{font-size:9px;color:var(--bronze);background:rgba(139,105,20,.18);padding:2px 7px;border-radius:8px;font-family:var(--font-en)}
+.nav-sub-item{padding-left:60px!important;border-left:3px solid transparent!important}
+.nav-sub-item:hover{border-left-color:var(--bronze)!important}
 .nav-sub-item .ntitle{font-size:12px!important}
 
 /* ===== CONTENT ===== */
@@ -163,9 +164,9 @@ a:hover{color:#ffe066}
 .sec-hd .sec-name{font-size:15px;font-weight:800;color:var(--text);letter-spacing:1px}
 .sec-hd .sec-line{flex:1;height:1px;background:var(--border)}
 .sec-hd .sec-cnt{font-size:10px;color:var(--text3);font-family:var(--font-en);background:var(--surface2);padding:3px 10px;border-radius:10px}
-.sec-hd.sec-sub{margin:28px 0 14px;padding-left:14px;border-left:2px solid var(--bronze)}
-.sec-hd.sec-sub .sec-name{font-size:13px;color:var(--bronze)}
-.sec-hd.sec-sub .sec-cnt{background:rgba(139,105,20,.12);color:var(--bronze)}
+.sec-hd.sec-sub{margin:28px 0 14px;padding-left:18px;border-left:3px solid var(--bronze);background:rgba(139,105,20,.04);border-radius:0 8px 8px 0;padding:10px 18px}
+.sec-hd.sec-sub .sec-name{font-size:13px;color:var(--bronze);font-weight:700}
+.sec-hd.sec-sub .sec-cnt{background:rgba(139,105,20,.18);color:var(--bronze)}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:8px}
 .card{
@@ -421,7 +422,7 @@ function buildSidebar() {
     var fid = fi.dataVar;
     var icon = FOLDER_ICONS[fi.folder]||'📄';
     var subfolders = fi.subfolders || [];
-    h += '<div class="nav-folder"><div class="nav-folder-hd" onclick="toggleFolder(\''+fid+'\')"><span class="arrow" id="a_'+fid+'">▼</span><span class="name">'+icon+' '+esc(fi.folder)+'</span><span class="cnt">'+fi.count+'</span></div><div class="nav-items" id="i_'+fid+'">';
+    h += '<div class="nav-folder"><div class="nav-folder-hd" onclick="toggleFolder(\''+fid+'\')"><span class="arrow" id="a_'+fid+'">▼</span><span class="fname">'+icon+' '+esc(fi.folder)+'</span><span class="fcnt">'+fi.count+'</span></div><div class="nav-items" id="i_'+fid+'">';
     // Direct docs (not in subfolders)
     var subDocIds = new Set();
     subfolders.forEach(function(sf){sf.docIds.forEach(function(d){subDocIds.add(d)})});
@@ -434,7 +435,7 @@ function buildSidebar() {
     subfolders.forEach(function(sf) {
       var sfIcon = FOLDER_ICONS[sf.name]||'📁';
       var sfFid = fid + '_sf_' + sf.name.replace(/[^a-zA-Z0-9\u4e00-\u9fff]/g,'');
-      h += '<div class="nav-subfolder"><div class="nav-subfolder-hd" onclick="toggleFolder(\''+sfFid+'\')"><span class="arrow" id="a_'+sfFid+'">▼</span><span class="name">'+sfIcon+' '+esc(sf.name)+'</span><span class="cnt">'+sf.docIds.length+'</span></div><div class="nav-items off" id="i_'+sfFid+'">';
+      h += '<div class="nav-subfolder"><div class="nav-subfolder-hd" onclick="toggleFolder(\''+sfFid+'\')"><span class="arrow" id="a_'+sfFid+'">▼</span><span class="fname">'+sfIcon+' '+esc(sf.name)+'</span><span class="fcnt">'+sf.docIds.length+'</span></div><div class="nav-items off" id="i_'+sfFid+'">';
       sf.docIds.forEach(function(did) {
         var idx = fi.docIds.indexOf(did);
         if (idx !== -1) {

@@ -124,7 +124,7 @@ a:hover{color:#ffe066}
   position:absolute;
   width:18%;height:auto;
   border-radius:6px;overflow:hidden;
-  filter:saturate(.2) brightness(.4);
+  filter:saturate(.55) brightness(.6);
   opacity:0;
   transition:filter .6s ease, opacity .8s ease, transform .3s ease;
   will-change:transform,opacity;
@@ -132,7 +132,7 @@ a:hover{color:#ffe066}
 }
 .hero-poster img{width:100%;height:auto;display:block}
 .hero-poster.reveal{opacity:1}
-.hero-poster:hover{filter:saturate(.35) brightness(.55);z-index:2;transform:scale(1.08)!important}
+.hero-poster:hover{filter:saturate(.75) brightness(.75);z-index:2;transform:scale(1.08)!important}
 @keyframes drift1{0%,100%{transform:translate(0,0) rotate(var(--r))}50%{transform:translate(6px,-10px) rotate(calc(var(--r) + 1.2deg))}}
 @keyframes drift2{0%,100%{transform:translate(0,0) rotate(var(--r))}50%{transform:translate(-8px,8px) rotate(calc(var(--r) - 1deg))}}
 @keyframes drift3{0%,100%{transform:translate(0,0) rotate(var(--r))}50%{transform:translate(5px,12px) rotate(calc(var(--r) + .8deg))}}
@@ -360,34 +360,34 @@ a:hover{color:#ffe066}
     <div class="home" id="homePage">
       <div class="hero">
         <div class="hero-atmo">
-          <div class="hero-poster" style="left:2%;top:3%;--r:-3deg;width:10%;animation:drift1 8s ease-in-out infinite;animation-delay:100ms">
+          <div class="hero-poster" style="left:1%;top:2%;--r:-3deg;width:12%;animation:drift1 8s ease-in-out infinite;animation-delay:100ms">
             <img src="assets/posters/fw_s1.jpg" alt="风味人间" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:12%;top:35%;--r:2deg;width:9%;animation:drift2 8s ease-in-out infinite;animation-delay:200ms">
+          <div class="hero-poster" style="left:10%;top:32%;--r:2deg;width:12%;animation:drift2 8s ease-in-out infinite;animation-delay:200ms">
             <img src="assets/posters/fw_s2.jpg" alt="风味人间 第二季" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:1%;top:60%;--r:-2deg;width:9%;animation:drift3 8s ease-in-out infinite;animation-delay:300ms">
+          <div class="hero-poster" style="left:1%;top:62%;--r:-2deg;width:12%;animation:drift3 8s ease-in-out infinite;animation-delay:300ms">
             <img src="assets/posters/fw_s3.jpg" alt="风味人间 大海小鲜" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:70%;top:2%;--r:4deg;width:9%;animation:drift4 8s ease-in-out infinite;animation-delay:400ms">
+          <div class="hero-poster" style="left:72%;top:2%;--r:4deg;width:12%;animation:drift4 8s ease-in-out infinite;animation-delay:400ms">
             <img src="assets/posters/fw_s4.jpg" alt="风味人间 谷物星球" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:60%;top:6%;--r:1deg;width:9%;animation:drift2 8s ease-in-out infinite;animation-delay:500ms">
+          <div class="hero-poster" style="left:58%;top:8%;--r:1deg;width:12%;animation:drift2 8s ease-in-out infinite;animation-delay:500ms">
             <img src="assets/posters/fwyg_gansu.jpg" alt="风味原产地·甘肃" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:86%;top:12%;--r:-4deg;width:8%;animation:drift3 8s ease-in-out infinite;animation-delay:600ms">
+          <div class="hero-poster" style="left:84%;top:10%;--r:-4deg;width:12%;animation:drift3 8s ease-in-out infinite;animation-delay:600ms">
             <img src="assets/posters/fwyg_chaoshan.jpg" alt="风味原产地·潮汕" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:50%;top:50%;--r:3deg;width:9%;animation:drift4 8s ease-in-out infinite;animation-delay:700ms">
+          <div class="hero-poster" style="left:48%;top:48%;--r:3deg;width:12%;animation:drift4 8s ease-in-out infinite;animation-delay:700ms">
             <img src="assets/posters/xszg.jpg" alt="寻色中国" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:24%;top:5%;--r:-1deg;width:9%;animation:drift1 8s ease-in-out infinite;animation-delay:800ms">
+          <div class="hero-poster" style="left:22%;top:3%;--r:-1deg;width:12%;animation:drift1 8s ease-in-out infinite;animation-delay:800ms">
             <img src="assets/posters/wdmsxd.jpg" alt="我的美食向导" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:78%;top:48%;--r:2deg;width:9%;animation:drift2 8s ease-in-out infinite;animation-delay:900ms">
+          <div class="hero-poster" style="left:76%;top:45%;--r:2deg;width:12%;animation:drift2 8s ease-in-out infinite;animation-delay:900ms">
             <img src="assets/posters/xwgy.jpg" alt="寻味贵阳" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:35%;top:58%;--r:-2deg;width:9%;animation:drift3 8s ease-in-out infinite;animation-delay:1000ms">
+          <div class="hero-poster" style="left:34%;top:56%;--r:-2deg;width:12%;animation:drift3 8s ease-in-out infinite;animation-delay:1000ms">
             <img src="assets/posters/xwdg.jpg" alt="寻味东莞" loading="lazy">
           </div>
         </div>
@@ -861,7 +861,7 @@ window.showDoc=function(id,folderName){
     document.getElementById('dDate').textContent=dateMatch?dateMatch[1]:'';
     // Fix buttons: online reading opens tencent doc, download uses export URL
     document.getElementById('dExt').href=doc.url;
-    document.getElementById('dPdf').href=doc.url.replace('/doc/','/export/')+'?format=docx';
+    document.getElementById('dPdf').href=doc.url.replace('/doc/','/export/')+'?format=pdf';
     
     // 如果内容已加载直接显示，否则先显示loading再按需加载
     if(doc.content){

@@ -219,31 +219,49 @@ a:hover{color:#ffe066}
   background:transparent;color:var(--text2);border:1px solid var(--border);
 }
 .doc-btn-secondary:hover{border-color:var(--border-brand);color:var(--yellow);transform:translateY(-1px)}
-.doc-body{
+.search-ctx{background:rgba(255,199,44,.06);border:1px solid rgba(255,199,44,.15);border-radius:10px;padding:20px 24px;margin-bottom:28px}
+.search-ctx-hd{font-size:11px;color:var(--yellow);letter-spacing:2px;font-weight:700;text-transform:uppercase;margin-bottom:12px;font-family:var(--font-en)}
+.search-ctx-snippet{font-size:14px;color:rgba(255,255,255,.75);line-height:1.8}
+.search-ctx-snippet .sr-hl{background:rgba(255,199,44,.25);color:var(--yellow);padding:1px 4px;border-radius:3px}
+.doc-outline{max-width:640px;margin:0 auto}
+.doc-outline-hd{font-size:11px;color:var(--yellow);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:28px;font-family:var(--font-en);display:flex;align-items:center;gap:10px}
+.doc-outline-hd::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,199,44,.3),transparent)}
+.doc-outline-list{list-style:none;padding:0;margin:0}
+.doc-outline-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04);transition:all .15s;cursor:default}
+.doc-outline-item:hover{padding-left:6px}
+.doc-outline-num{font-size:11px;color:var(--yellow);font-weight:700;font-family:var(--font-en);min-width:22px;padding-top:3px;opacity:.6}
+.doc-outline-text{font-size:14.5px;color:rgba(255,255,255,.78);line-height:1.7}
+.doc-outline-item:hover .doc-outline-text{color:var(--white)}
+.doc-outline-sub{padding-left:36px}
+.doc-outline-sub .doc-outline-text{font-size:13px;color:rgba(255,255,255,.55)}
+.doc-outline-sub .doc-outline-item:hover .doc-outline-text{color:rgba(255,255,255,.85)}
+.doc-outline-sub .doc-outline-num{font-size:10px;opacity:.4}
+.doc-desc-box{background:rgba(255,199,44,.04);border-left:3px solid var(--yellow);border-radius:0 10px 10px 0;padding:18px 24px;margin-bottom:32px;color:var(--text2);font-size:14px;line-height:1.8}
+.doc-outline{
   font-size:15.5px;line-height:1.85;color:rgba(255,255,255,.75);font-weight:300;
   -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
 }
-.doc-body h1{font-size:26px;font-weight:900;color:var(--white);margin:48px 0 20px;padding-bottom:14px;border-bottom:2px solid var(--yellow);line-height:1.3}
-.doc-body h2{font-size:21px;font-weight:700;color:var(--white);margin:36px 0 16px;padding-left:16px;border-left:3px solid var(--yellow);line-height:1.4}
-.doc-body h3{font-size:17px;font-weight:700;color:rgba(255,255,255,.9);margin:28px 0 10px;line-height:1.5}
-.doc-body h4{font-size:15px;font-weight:600;color:rgba(255,255,255,.82);margin:22px 0 8px}
-.doc-body p{margin-bottom:14px}
-.doc-body strong{color:var(--white);font-weight:600}
-.doc-body em{color:var(--yellow);font-style:normal}
-.doc-body a{color:var(--yellow);text-decoration:none;border-bottom:1px solid rgba(255,199,44,.3);transition:border-color .2s}
-.doc-body a:hover{border-bottom-color:var(--yellow)}
-.doc-body blockquote{border-left:3px solid var(--yellow);padding:14px 20px;margin:18px 0;background:var(--glow);color:var(--text2);border-radius:0 var(--radius-sm) var(--radius-sm) 0}
-.doc-body pre{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:18px;overflow-x:auto;margin:18px 0}
-.doc-body code{font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:13px}
-.doc-body code:not(pre code){background:rgba(255,199,44,.08);padding:2px 8px;border-radius:4px;color:var(--yellow);font-size:13px}
-.doc-body ul,.doc-body ol{margin:10px 0 14px 0;padding-left:24px}
-.doc-body li{margin-bottom:6px;line-height:1.8}
-.doc-body hr{border:none;border-top:1px solid var(--border);margin:36px 0}
-.doc-body table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;border-radius:8px;overflow:hidden}
-.doc-body th,.doc-body td{border:1px solid var(--border);padding:10px 14px;text-align:left}
-.doc-body th{background:var(--surface2);color:var(--yellow);font-weight:600;font-size:12px;letter-spacing:.5px;text-transform:uppercase}
-.doc-body tr:hover td{background:rgba(255,255,255,.02)}
-.doc-body img.doc-img{max-width:100%;border-radius:8px;margin:16px 0}
+.doc-outline h1{font-size:26px;font-weight:900;color:var(--white);margin:48px 0 20px;padding-bottom:14px;border-bottom:2px solid var(--yellow);line-height:1.3}
+.doc-outline h2{font-size:21px;font-weight:700;color:var(--white);margin:36px 0 16px;padding-left:16px;border-left:3px solid var(--yellow);line-height:1.4}
+.doc-outline h3{font-size:17px;font-weight:700;color:rgba(255,255,255,.9);margin:28px 0 10px;line-height:1.5}
+.doc-outline h4{font-size:15px;font-weight:600;color:rgba(255,255,255,.82);margin:22px 0 8px}
+.doc-outline p{margin-bottom:14px}
+.doc-outline strong{color:var(--white);font-weight:600}
+.doc-outline em{color:var(--yellow);font-style:normal}
+.doc-outline a{color:var(--yellow);text-decoration:none;border-bottom:1px solid rgba(255,199,44,.3);transition:border-color .2s}
+.doc-outline a:hover{border-bottom-color:var(--yellow)}
+.doc-outline blockquote{border-left:3px solid var(--yellow);padding:14px 20px;margin:18px 0;background:var(--glow);color:var(--text2);border-radius:0 var(--radius-sm) var(--radius-sm) 0}
+.doc-outline pre{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:18px;overflow-x:auto;margin:18px 0}
+.doc-outline code{font-family:"SF Mono","Fira Code",Consolas,monospace;font-size:13px}
+.doc-outline code:not(pre code){background:rgba(255,199,44,.08);padding:2px 8px;border-radius:4px;color:var(--yellow);font-size:13px}
+.doc-outline ul,.doc-outline ol{margin:10px 0 14px 0;padding-left:24px}
+.doc-outline li{margin-bottom:6px;line-height:1.8}
+.doc-outline hr{border:none;border-top:1px solid var(--border);margin:36px 0}
+.doc-outline table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;border-radius:8px;overflow:hidden}
+.doc-outline th,.doc-outline td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+.doc-outline th{background:var(--surface2);color:var(--yellow);font-weight:600;font-size:12px;letter-spacing:.5px;text-transform:uppercase}
+.doc-outline tr:hover td{background:rgba(255,255,255,.02)}
+.doc-outline img.doc-img{max-width:100%;border-radius:8px;margin:16px 0}
 .doc-img-ph{
   padding:32px 20px;text-align:center;background:var(--surface2);border:1px dashed var(--border);
   border-radius:8px;color:var(--text3);font-size:13px;margin:16px 0;
@@ -327,34 +345,34 @@ a:hover{color:#ffe066}
     <div class="home" id="homePage">
       <div class="hero">
         <div class="hero-atmo">
-          <div class="hero-poster" style="left:2%;top:8%;--r:-4deg;width:16%;animation:drift1 8s ease-in-out infinite;animation-delay:100ms">
+          <div class="hero-poster" style="left:3%;top:5%;--r:-3deg;width:12%;animation:drift1 8s ease-in-out infinite;animation-delay:100ms">
             <img src="assets/posters/fw_s1.jpg" alt="风味人间" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:18%;top:52%;--r:3deg;width:14%;animation:drift2 8s ease-in-out infinite;animation-delay:200ms">
+          <div class="hero-poster" style="left:14%;top:38%;--r:2deg;width:11%;animation:drift2 8s ease-in-out infinite;animation-delay:200ms">
             <img src="assets/posters/fw_s2.jpg" alt="风味人间 第二季" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:6%;top:55%;--r:-2deg;width:13%;animation:drift3 8s ease-in-out infinite;animation-delay:300ms">
+          <div class="hero-poster" style="left:1%;top:62%;--r:-2deg;width:10%;animation:drift3 8s ease-in-out infinite;animation-delay:300ms">
             <img src="assets/posters/fw_s3.jpg" alt="风味人间 大海小鲜" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:78%;top:5%;--r:5deg;width:15%;animation:drift4 8s ease-in-out infinite;animation-delay:400ms">
+          <div class="hero-poster" style="left:75%;top:3%;--r:4deg;width:11%;animation:drift4 8s ease-in-out infinite;animation-delay:400ms">
             <img src="assets/posters/fw_s4.jpg" alt="风味人间 谷物星球" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:82%;top:50%;--r:-3deg;width:12%;animation:drift1 8s ease-in-out infinite;animation-delay:500ms">
+          <div class="hero-poster" style="left:84%;top:45%;--r:-3deg;width:10%;animation:drift1 8s ease-in-out infinite;animation-delay:500ms">
             <img src="assets/posters/fw_s4b.jpg" alt="风味人间 谷物星球" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:68%;top:8%;--r:2deg;width:13%;animation:drift2 8s ease-in-out infinite;animation-delay:600ms">
+          <div class="hero-poster" style="left:64%;top:8%;--r:2deg;width:10%;animation:drift2 8s ease-in-out infinite;animation-delay:600ms">
             <img src="assets/posters/fwyg_gansu.jpg" alt="风味原产地·甘肃" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:88%;top:28%;--r:-5deg;width:10%;animation:drift3 8s ease-in-out infinite;animation-delay:700ms">
+          <div class="hero-poster" style="left:88%;top:18%;--r:-4deg;width:8%;animation:drift3 8s ease-in-out infinite;animation-delay:700ms">
             <img src="assets/posters/fwyg_chaoshan.jpg" alt="风味原产地·潮汕" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:58%;top:55%;--r:4deg;width:12%;animation:drift4 8s ease-in-out infinite;animation-delay:800ms">
+          <div class="hero-poster" style="left:56%;top:55%;--r:3deg;width:10%;animation:drift4 8s ease-in-out infinite;animation-delay:800ms">
             <img src="assets/posters/xszg.jpg" alt="寻色中国" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:25%;top:5%;--r:-3deg;width:11%;animation:drift1 8s ease-in-out infinite;animation-delay:900ms">
+          <div class="hero-poster" style="left:25%;top:6%;--r:-2deg;width:9%;animation:drift1 8s ease-in-out infinite;animation-delay:900ms">
             <img src="assets/posters/xszg2.jpg" alt="寻色中国" loading="lazy">
           </div>
-          <div class="hero-poster" style="left:42%;top:58%;--r:2deg;width:14%;animation:drift2 8s ease-in-out infinite;animation-delay:1000ms">
+          <div class="hero-poster" style="left:38%;top:60%;--r:2deg;width:11%;animation:drift2 8s ease-in-out infinite;animation-delay:1000ms">
             <img src="assets/posters/wdmsxd.jpg" alt="我的美食向导" loading="lazy">
           </div>
         </div>
@@ -377,12 +395,13 @@ a:hover{color:#ffe066}
       <div class="doc-hd">
         <div class="doc-tag" id="dTag"></div>
         <h1 class="doc-title" id="dTitle"></h1>
+        <div class="doc-desc-box" id="dDesc"></div>
         <div class="doc-actions">
-          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-primary" id="dExt">在线阅读 ↗</a>
-          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-secondary" id="dPdf">下载文档 ↓</a>
+          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-primary" id="dExt">📄 在线阅读 ↗</a>
+          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-secondary" id="dPdf">⬇ 下载文档 ↓</a>
         </div>
       </div>
-      <div class="doc-body" id="dBody"></div>
+      <div class="doc-outline" id="dOutline"></div>
     </div>
     <div class="search-page" id="searchPage">
       <div class="doc-back" onclick="clearSearch()">← 返回全部报告</div>
@@ -392,7 +411,7 @@ a:hover{color:#ffe066}
 </div>
 
 <script>
-window.FOLDER_INDEX = [{"folder": "专题调研", "dataVar": "FOLDER_DATA_f0", "dataFile": "data/f0.js", "count": 8, "docIds": ["POTQOdxDYjtN", "PKPRDJmPLJhY", "PzLxxFlEBLzH", "PNhrmvrCsivj", "PcQLggMfrosM", "PGcovMhDCrKx", "PdNvFrmPoInr", "PsmuXRLLouAz"], "docTitles": ["海外流媒体平台历史纪录片新趋势", "海外美食类纪录片新方向", "中国独立纪录片概要", "当代潮玩现象研究", "2025年中国潮玩经济行业研究报告", "泡泡玛特招股书", "《因为独特-王宁访谈》", "泡泡玛特2024财报"], "docUrls": ["https://docs.qq.com/doc/POTQOdxDYjtN", "https://docs.qq.com/doc/PKPRDJmPLJhY", "https://docs.qq.com/doc/PzLxxFlEBLzH", "https://docs.qq.com/doc/PNhrmvrCsivj", "https://docs.qq.com/doc/PcQLggMfrosM", "https://docs.qq.com/doc/PGcovMhDCrKx", "https://docs.qq.com/doc/PdNvFrmPoInr", "https://docs.qq.com/doc/PsmuXRLLouAz"], "subfolders": [{"name": "当代潮玩现象研究及相关行业报告", "docIds": ["PNhrmvrCsivj", "PcQLggMfrosM", "PGcovMhDCrKx", "PdNvFrmPoInr", "PsmuXRLLouAz"]}]}, {"folder": "每月纪实报告", "dataVar": "FOLDER_DATA_f1", "dataFile": "data/f1.js", "count": 15, "docIds": ["PAzwTBWAPDkb", "PUJchixwjuar", "Pmjrvnxmfjtz", "PpZHUwHLfomr", "PgqRzgRaFhbP", "PZnYJDYUtpPg", "PsZpTGqNHeUG", "PZjVKkSlIOPc", "PaOhUPukqyUj", "PqCoQStPbHBT", "PGgUPJBbRrBI", "PGaqTmyNrgHU", "PKbWVJhaKIBd", "PzpVthlAJXUI", "PNotHhgKPfNy"], "docTitles": ["稻来2026年6月纪实报告（第十四期）", "稻来2026年5月纪实报告（第十三期）", "稻来2026年4月纪实报告（第十二期）", "稻来2026年3月纪实报告（第十一期）", "稻来2026年2月纪实报告（第十期）", "稻来25年12月纪实报告（第九期）", "稻来2025年11月纪实报告（补充）", "稻来25年10月纪实报告（第八期）", "稻来25年9月纪实报告（第七期）", "稻来25年8月纪实报告（第六期）", "稻来25年7月纪实报告（第五期）", "稻来25年6月纪实报告（第四期）", "稻来25年5月纪实报告（第三期）", "稻来25年4月纪实报告（第二期）", "稻来25年3月纪实报告（第一期）"], "docUrls": ["https://docs.qq.com/doc/PAzwTBWAPDkb", "https://docs.qq.com/doc/PUJchixwjuar", "https://docs.qq.com/doc/Pmjrvnxmfjtz", "https://docs.qq.com/doc/PpZHUwHLfomr", "https://docs.qq.com/doc/PgqRzgRaFhbP", "https://docs.qq.com/doc/PZnYJDYUtpPg", "https://docs.qq.com/doc/PsZpTGqNHeUG", "https://docs.qq.com/doc/PZjVKkSlIOPc", "https://docs.qq.com/doc/PaOhUPukqyUj", "https://docs.qq.com/doc/PqCoQStPbHBT", "https://docs.qq.com/doc/PGgUPJBbRrBI", "https://docs.qq.com/doc/PGaqTmyNrgHU", "https://docs.qq.com/doc/PKbWVJhaKIBd", "https://docs.qq.com/doc/PzpVthlAJXUI", "https://docs.qq.com/doc/PNotHhgKPfNy"]}, {"folder": "AI与纪录片", "dataVar": "FOLDER_DATA_f2", "dataFile": "data/f2.js", "count": 2, "docIds": ["PZxRgxEgEkZG", "PryelJHeVnnh"], "docTitles": ["AI在纪录片中的应用与未来发展趋势", "AI如何帮助纪录片制作"], "docUrls": ["https://docs.qq.com/doc/PZxRgxEgEkZG", "https://docs.qq.com/doc/PryelJHeVnnh"]}, {"folder": "节目分析", "dataVar": "FOLDER_DATA_f3", "dataFile": "data/f3.js", "count": 4, "docIds": ["PfTfoStGKxdp", "PzntOBmXXiMA", "PollNvsDknth", "PWMXvdUDzMJs"], "docTitles": ["黎里真实影像大会报告分享", "三部美食真人秀总结报告", "《ISurvived…》A&E制作分析", "星球研究所视频分析"], "docUrls": ["https://docs.qq.com/doc/PfTfoStGKxdp", "https://docs.qq.com/doc/PzntOBmXXiMA", "https://docs.qq.com/doc/PollNvsDknth", "https://docs.qq.com/doc/PWMXvdUDzMJs"]}, {"folder": "年轻人餐饮消费及节目延伸专题研究", "dataVar": "FOLDER_DATA_f4", "dataFile": "data/f4.js", "count": 1, "docIds": ["PBTiTDJwBpJM"], "docTitles": ["2025-2026年轻人餐饮消费报告V8"], "docUrls": ["https://docs.qq.com/doc/PBTiTDJwBpJM"]}];
+window.FOLDER_INDEX = [{"folder": "每月纪实报告", "dataVar": "FOLDER_DATA_f1", "dataFile": "data/f1.js", "count": 15, "docIds": ["PAzwTBWAPDkb", "PUJchixwjuar", "Pmjrvnxmfjtz", "PpZHUwHLfomr", "PgqRzgRaFhbP", "PZnYJDYUtpPg", "PsZpTGqNHeUG", "PZjVKkSlIOPc", "PaOhUPukqyUj", "PqCoQStPbHBT", "PGgUPJBbRrBI", "PGaqTmyNrgHU", "PKbWVJhaKIBd", "PzpVthlAJXUI", "PNotHhgKPfNy"], "docTitles": ["稻来2026年6月纪实报告（第十四期）", "稻来2026年5月纪实报告（第十三期）", "稻来2026年4月纪实报告（第十二期）", "稻来2026年3月纪实报告（第十一期）", "稻来2026年2月纪实报告（第十期）", "稻来25年12月纪实报告（第九期）", "稻来2025年11月纪实报告（补充）", "稻来25年10月纪实报告（第八期）", "稻来25年9月纪实报告（第七期）", "稻来25年8月纪实报告（第六期）", "稻来25年7月纪实报告（第五期）", "稻来25年6月纪实报告（第四期）", "稻来25年5月纪实报告（第三期）", "稻来25年4月纪实报告（第二期）", "稻来25年3月纪实报告（第一期）"], "docUrls": ["https://docs.qq.com/doc/PAzwTBWAPDkb", "https://docs.qq.com/doc/PUJchixwjuar", "https://docs.qq.com/doc/Pmjrvnxmfjtz", "https://docs.qq.com/doc/PpZHUwHLfomr", "https://docs.qq.com/doc/PgqRzgRaFhbP", "https://docs.qq.com/doc/PZnYJDYUtpPg", "https://docs.qq.com/doc/PsZpTGqNHeUG", "https://docs.qq.com/doc/PZjVKkSlIOPc", "https://docs.qq.com/doc/PaOhUPukqyUj", "https://docs.qq.com/doc/PqCoQStPbHBT", "https://docs.qq.com/doc/PGgUPJBbRrBI", "https://docs.qq.com/doc/PGaqTmyNrgHU", "https://docs.qq.com/doc/PKbWVJhaKIBd", "https://docs.qq.com/doc/PzpVthlAJXUI", "https://docs.qq.com/doc/PNotHhgKPfNy"]}, {"folder": "AI与纪录片", "dataVar": "FOLDER_DATA_f2", "dataFile": "data/f2.js", "count": 2, "docIds": ["PZxRgxEgEkZG", "PryelJHeVnnh"], "docTitles": ["AI在纪录片中的应用与未来发展趋势", "AI如何帮助纪录片制作"], "docUrls": ["https://docs.qq.com/doc/PZxRgxEgEkZG", "https://docs.qq.com/doc/PryelJHeVnnh"]}, {"folder": "节目分析", "dataVar": "FOLDER_DATA_f3", "dataFile": "data/f3.js", "count": 4, "docIds": ["PfTfoStGKxdp", "PzntOBmXXiMA", "PollNvsDknth", "PWMXvdUDzMJs"], "docTitles": ["黎里真实影像大会报告分享", "三部美食真人秀总结报告", "《ISurvived…》A&E制作分析", "星球研究所视频分析"], "docUrls": ["https://docs.qq.com/doc/PfTfoStGKxdp", "https://docs.qq.com/doc/PzntOBmXXiMA", "https://docs.qq.com/doc/PollNvsDknth", "https://docs.qq.com/doc/PWMXvdUDzMJs"]}, {"folder": "年轻人餐饮消费及节目延伸专题研究", "dataVar": "FOLDER_DATA_f4", "dataFile": "data/f4.js", "count": 1, "docIds": ["PBTiTDJwBpJM"], "docTitles": ["2025-2026年轻人餐饮消费报告V8"], "docUrls": ["https://docs.qq.com/doc/PBTiTDJwBpJM"]}, {"folder": "专题调研", "dataVar": "FOLDER_DATA_f0", "dataFile": "data/f0.js", "count": 8, "docIds": ["POTQOdxDYjtN", "PKPRDJmPLJhY", "PzLxxFlEBLzH", "PNhrmvrCsivj", "PcQLggMfrosM", "PGcovMhDCrKx", "PdNvFrmPoInr", "PsmuXRLLouAz"], "docTitles": ["海外流媒体平台历史纪录片新趋势", "海外美食类纪录片新方向", "中国独立纪录片概要", "当代潮玩现象研究", "2025年中国潮玩经济行业研究报告", "泡泡玛特招股书", "《因为独特-王宁访谈》", "泡泡玛特2024财报"], "docUrls": ["https://docs.qq.com/doc/POTQOdxDYjtN", "https://docs.qq.com/doc/PKPRDJmPLJhY", "https://docs.qq.com/doc/PzLxxFlEBLzH", "https://docs.qq.com/doc/PNhrmvrCsivj", "https://docs.qq.com/doc/PcQLggMfrosM", "https://docs.qq.com/doc/PGcovMhDCrKx", "https://docs.qq.com/doc/PdNvFrmPoInr", "https://docs.qq.com/doc/PsmuXRLLouAz"], "subfolders": [{"name": "当代潮玩现象研究及相关行业报告", "docIds": ["PNhrmvrCsivj", "PcQLggMfrosM", "PGcovMhDCrKx", "PdNvFrmPoInr", "PsmuXRLLouAz"]}]}];
 </script>
 <script>
 
@@ -549,6 +568,47 @@ function buildCards() {
   });
 }
 
+
+function getDocSummary(doc){
+  var c=doc.content||'';
+  var first=c.substring(0,300).replace(/<image[^>]*>/gi,'').replace(/<!--[\s\S]*?-->/g,'').replace(/[#*_\[\]\\|`]/g,'').trim();
+  var lines=first.split(/\n+/);
+  for(var i=0;i<lines.length;i++){
+    var l=lines[i].trim();
+    if(l && !l.match(/^\d+$/)&& l.length>8) return l.substring(0,120)+'…';
+  }
+  return '点击"在线阅读"查看完整文档';
+}
+
+function buildOutline(md){
+  var t=md||'';
+  t=t.replace(/<!--[\s\S]*?-->/g,'');
+  t=t.replace(/<image[^>]*>/gi,'');
+  var lines=t.split('\n');
+  var items=[];
+  var h1n=0,h2n=0;
+  for(var i=0;i<lines.length;i++){
+    var line=lines[i].trim();
+    var m2=line.match(/^##\s+(.+)$/);
+    var m3=line.match(/^###\s+(.+)$/);
+    if(m2){
+      h1n++;h2n=0;
+      items.push({level:1,num:h1n,text:m2[1].replace(/\*\*/g,'').replace(/\*/g,'')});
+    } else if(m3){
+      h2n++;
+      items.push({level:2,num:h2n,text:m3[1].replace(/\*\*/g,'').replace(/\*/g,'')});
+    }
+  }
+  if(items.length===0) return '<div style="color:var(--text3);font-size:14px;text-align:center;padding:48px 0">暂无目录信息，请点击"在线阅读"查看完整文档</div>';
+  var html='<div class="doc-outline-hd">目录</div><ul class="doc-outline-list">';
+  items.forEach(function(it){
+    var cls=it.level===1?'doc-outline-item':'doc-outline-item doc-outline-sub';
+    html+='<li class="'+cls+'"><span class="doc-outline-num">'+(it.level===1?it.num+'.':'·')+'</span><span class="doc-outline-text">'+it.text+'</span></li>';
+  });
+  html+='</ul>';
+  return html;
+}
+
 function md2html(md) {
   var t = md||'';
   // Strip Tencent Doc page number comments
@@ -654,7 +714,7 @@ function showSearchResults(q,results){
     var folderLabel = r.doc.folder;
     if (r.doc.subfolder) folderLabel = r.doc.folder + ' › ' + r.doc.subfolder;
     var snip=getSnippet(r.doc.content,q,160);
-    return '<div class="sr-item" onclick="showDoc(\''+r.doc.id+'\',\''+esc(r.doc.folder)+'\')"><div class="sr-title">'+hl(r.doc.title,q)+'</div><div class="sr-folder">'+esc(folderLabel)+'</div><div class="sr-snippet">'+hl(snip,q)+'</div></div>';
+    return '<div class="sr-item" onclick="showDocFromSearch(\''+r.doc.id+'\',\''+esc(r.doc.folder)+'\',\''+esc(q)+'\')"><div class="sr-title">'+hl(r.doc.title,q)+'</div><div class="sr-folder">'+esc(folderLabel)+'</div><div class="sr-snippet">'+hl(snip,q)+'</div></div>';
   }).join('');
 }
 
@@ -704,11 +764,13 @@ window.showDoc=function(id,folderName){
     
     // 如果内容已加载直接显示，否则先显示loading再按需加载
     if(doc.content){
-      document.getElementById('dBody').innerHTML=md2html(doc.content);
+      document.getElementById('dDesc').textContent=getDocSummary(doc);
+      document.getElementById('dOutline').innerHTML=buildOutline(doc.content||'');
     } else {
-      document.getElementById('dBody').innerHTML='<div class="doc-loading"><div class="spinner"></div><br>文档加载中…</div>';
+      document.getElementById('dDesc').textContent=getDocSummary(doc);
+      document.getElementById('dOutline').innerHTML='<div class="doc-loading"><div class="spinner"></div><br>文档加载中…</div>';
       loadDocContent(doc).then(function(d){
-        document.getElementById('dBody').innerHTML=md2html(d.content||'内容加载失败，请直接在腾讯文档中查看');
+        document.getElementById('dOutline').innerHTML=buildOutline(d.content||'内容加载失败，请直接在腾讯文档中查看');
       });
     }
     
@@ -716,6 +778,29 @@ window.showDoc=function(id,folderName){
     document.getElementById('contentArea').scrollTop=0;
     closeSB();
   });
+};
+
+
+window.showDocFromSearch=function(id,folderName,searchQ){
+  showDoc(id,folderName);
+  // After doc loads, show search context snippet
+  setTimeout(function(){
+    var doc=docMap[id];
+    if(!doc||!doc.content||!searchQ)return;
+    var snippet=getSnippet(doc.content,searchQ,200);
+    var outlineEl=document.getElementById('dOutline');
+    if(!outlineEl)return;
+    var ctxHtml='<div class="search-ctx"><div class="search-ctx-hd">🔍 搜索匹配：'+esc(searchQ)+'</div><div class="search-ctx-snippet">'+hl(snippet,searchQ)+'</div></div>';
+    outlineEl.insertAdjacentHTML('afterbegin',ctxHtml);
+    // Highlight matching outline items
+    var lq=searchQ.toLowerCase();
+    outlineEl.querySelectorAll('.doc-outline-text').forEach(function(el){
+      if(el.textContent.toLowerCase().indexOf(lq)!==-1){
+        el.style.color='var(--yellow)';
+        el.style.fontWeight='700';
+      }
+    });
+  },500);
 };
 
 window.toggleFolder=function(fid){
@@ -779,14 +864,14 @@ buildCards();
 <script>
 // Prevent right-click on doc content
 document.addEventListener('contextmenu',function(e){
-  if(e.target.closest&&e.target.closest('.doc-body'))e.preventDefault();
+  if(e.target.closest&&e.target.closest('.doc-outline'))e.preventDefault();
 });
 // Prevent copy on doc content
 document.addEventListener('copy',function(e){
   var sel=window.getSelection();
   if(sel&&sel.rangeCount){
     var r=sel.getRangeAt(0);
-    if(r.startContainer.closest&&r.startContainer.closest('.doc-body')){
+    if(r.startContainer.closest&&r.startContainer.closest('.doc-outline')){
       e.preventDefault();
     }
   }
@@ -795,14 +880,14 @@ document.addEventListener('copy',function(e){
 <script>
 // Prevent right-click on doc content
 document.addEventListener('contextmenu',function(e){
-  if(e.target.closest&&e.target.closest('.doc-body'))e.preventDefault();
+  if(e.target.closest&&e.target.closest('.doc-outline'))e.preventDefault();
 });
 // Prevent copy on doc content
 document.addEventListener('copy',function(e){
   var sel=window.getSelection();
   if(sel&&sel.rangeCount){
     var r=sel.getRangeAt(0);
-    if(r.startContainer.closest&&r.startContainer.closest('.doc-body')){
+    if(r.startContainer.closest&&r.startContainer.closest('.doc-outline')){
       e.preventDefault();
     }
   }

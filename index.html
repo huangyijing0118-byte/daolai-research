@@ -222,6 +222,17 @@ a:hover{color:#ffe066}
 .doc-btn-secondary{
   background:rgba(255,255,255,.04);color:var(--text2);border:1px solid rgba(255,255,255,.08);
 }
+.doc-meta-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.doc-date{font-size:12px;color:var(--text3);font-family:var(--font-en);letter-spacing:1px}
+.doc-related{margin-top:48px;padding-top:32px;border-top:1px solid var(--border)}
+.doc-related-hd{font-size:13px;color:var(--yellow);letter-spacing:2px;font-weight:700;text-transform:uppercase;margin-bottom:20px;font-family:var(--font-en)}
+.doc-related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.doc-related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;cursor:pointer;transition:all .2s}
+.doc-related-card:hover{background:rgba(255,255,255,.06);border-color:rgba(255,199,44,.2);transform:translateY(-2px)}
+.doc-related-card .rc-tag{display:inline-block;font-size:10px;color:var(--yellow);letter-spacing:1px;font-weight:600;padding:2px 8px;border-radius:4px;background:rgba(255,199,44,.1);margin-bottom:10px}
+.doc-related-card .rc-title{font-size:14px;font-weight:700;color:var(--white);line-height:1.5;margin-bottom:8px}
+.doc-related-card .rc-desc{font-size:12px;color:var(--text3);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.doc-related-card .rc-meta{font-size:11px;color:var(--text3);margin-top:8px;font-family:var(--font-en)}
 .doc-btn-secondary:hover{border-color:rgba(255,255,255,.15);color:var(--white);transform:translateY(-1px)}
 .search-ctx{background:rgba(255,199,44,.06);border:1px solid rgba(255,199,44,.15);border-radius:10px;padding:20px 24px;margin-bottom:28px}
 .search-ctx-hd{font-size:11px;color:var(--yellow);letter-spacing:2px;font-weight:700;text-transform:uppercase;margin-bottom:12px;font-family:var(--font-en)}
@@ -397,15 +408,19 @@ a:hover{color:#ffe066}
     <div class="doc-page" id="docPage">
       <div class="doc-back" onclick="goHome()">← 返回全部报告</div>
       <div class="doc-hd">
-        <div class="doc-tag" id="dTag"></div>
+        <div class="doc-meta-row">
+          <div class="doc-tag" id="dTag"></div>
+          <div class="doc-date" id="dDate"></div>
+        </div>
         <h1 class="doc-title" id="dTitle"></h1>
         <div class="doc-desc-box" id="dDesc"></div>
         <div class="doc-actions">
-          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-primary" id="dExt">📄 在线阅读 ↗</a>
-          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-secondary" id="dPdf">⬇ 下载文档 ↓</a>
+          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-primary" id="dExt">在线阅读 ↗</a>
+          <a href="#" target="_blank" rel="noopener" class="doc-btn doc-btn-secondary" id="dPdf">下载文档 ↓</a>
         </div>
       </div>
       <div class="doc-outline" id="dOutline"></div>
+      <div class="doc-related" id="dRelated"></div>
     </div>
     <div class="search-page" id="searchPage">
       <div class="doc-back" onclick="clearSearch()">← 返回全部报告</div>
@@ -805,6 +820,31 @@ window.goHome=function(){
   closeSB();
 };
 
+function buildRelated(currentDoc){
+  var el=document.getElementById('dRelated');
+  if(!el)return;
+  // Find docs in same folder, excluding current
+  var sameFolder=ALL_DOCS.filter(function(d){return d.folder===currentDoc.folder&&d.id!==currentDoc.id});
+  // If not enough, add from other folders
+  var others=ALL_DOCS.filter(function(d){return d.folder!==currentDoc.folder&&d.id!==currentDoc.id});
+  var related=sameFolder.concat(others).slice(0,4);
+  if(!related.length){el.innerHTML='';return}
+  var html='<div class="doc-related-hd">相关推荐</div><div class="doc-related-grid">';
+  related.forEach(function(d){
+    var dateM=d.title.match(/(\d{4}年\d{1,2}月|\d{2}年\d{1,2}月)/);
+    var dateStr=dateM?dateM[1]:'';
+    var summary=getDocSummary(d);
+    html+='<div class="doc-related-card" onclick="showDoc(\''+d.id+'\',\''+esc(d.folder)+'\')">';
+    html+='<div class="rc-tag">'+esc(d.subfolder?d.folder+' › '+d.subfolder:d.folder)+'</div>';
+    html+='<div class="rc-title">'+esc(d.title)+'</div>';
+    html+='<div class="rc-desc">'+esc(summary)+'</div>';
+    if(dateStr)html+='<div class="rc-meta">'+esc(dateStr)+'</div>';
+    html+='</div>';
+  });
+  html+='</div>';
+  el.innerHTML=html;
+}
+
 window.showDoc=function(id,folderName){
   var folder=folderName||'';
   var loadP=loadedFolders[folder]?Promise.resolve():loadFolder(folder);
@@ -816,8 +856,12 @@ window.showDoc=function(id,folderName){
     dp.style.display='block';dp.classList.add('active');
     document.getElementById('dTag').textContent=doc.subfolder ? doc.folder+' › '+doc.subfolder : doc.folder;
     document.getElementById('dTitle').textContent=doc.title;
+    // Extract date from title (e.g. "2026年6月", "25年12月")
+    var dateMatch=doc.title.match(/(\d{4}年\d{1,2}月|\d{2}年\d{1,2}月)/);
+    document.getElementById('dDate').textContent=dateMatch?dateMatch[1]:'';
+    // Fix buttons: online reading opens tencent doc, download uses export URL
     document.getElementById('dExt').href=doc.url;
-    document.getElementById('dPdf').href=doc.url;
+    document.getElementById('dPdf').href=doc.url.replace('/doc/','/export/')+'?format=docx';
     
     // 如果内容已加载直接显示，否则先显示loading再按需加载
     if(doc.content){
@@ -830,6 +874,9 @@ window.showDoc=function(id,folderName){
         document.getElementById('dOutline').innerHTML=buildOutline(d.content||'内容加载失败，请直接在腾讯文档中查看');
       });
     }
+    
+    // Build related recommendations
+    buildRelated(doc);
     
     document.querySelectorAll('.nav-item').forEach(function(el){el.classList.toggle('active',el.dataset.id===id)});
     document.getElementById('contentArea').scrollTop=0;

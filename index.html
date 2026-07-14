@@ -888,7 +888,7 @@ window.showDoc=function(id,folderName){
     document.getElementById('dIssue2').textContent=issueStr;
     // Fix buttons: online reading opens tencent doc, download uses export URL
     document.getElementById('dExt').href=doc.url;
-    document.getElementById('dPdf').href=doc.url.replace('/doc/','/export/')+'?format=pdf';
+    document.getElementById('dPdf').href=doc.url.replace('/doc/','/pdf/');
     
     // 如果内容已加载直接显示，否则先显示loading再按需加载
     if(doc.content){
